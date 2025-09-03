@@ -1,9 +1,13 @@
-'use client'
-
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { Shield, CheckCircle, FileText, AlertCircle } from 'lucide-react'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'AI Act Compliance Checker',
+  description: 'Gratis EU AI Act compliance check. Krijg in 10 minuten duidelijkheid over de AI Act-eisen voor uw systeem met een gedetailleerd rapport.',
+}
 
 export default function AIActCheckerPage() {
   return (
