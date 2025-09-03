@@ -100,10 +100,12 @@ export default function AssessmentPage() {
       const currentSectionIndex = questionSections.indexOf(currentSection as any)
       if (currentSectionIndex > 0) {
         const prevSection = questionSections[currentSectionIndex - 1]
-        setCurrentSection(prevSection)
-        const prevQuestions = getNextQuestions(prevSection, answers[prevSection as keyof AssessmentAnswers] || {})
-        setCurrentQuestionIndex(Math.max(0, prevQuestions.length - 1))
-        setCurrentStep(currentStep - 1)
+        if (prevSection) {
+          setCurrentSection(prevSection)
+          const prevQuestions = getNextQuestions(prevSection, answers[prevSection as keyof AssessmentAnswers] || {})
+          setCurrentQuestionIndex(Math.max(0, prevQuestions.length - 1))
+          setCurrentStep(currentStep - 1)
+        }
       } else if (currentSection === 'scope') {
         // Back to email form
         setCurrentSection('email')
