@@ -219,7 +219,7 @@ export default function AssessmentPage() {
           ) : currentQuestion ? (
             <QuestionCard
               question={currentQuestion}
-              value={answers[currentSection as keyof AssessmentAnswers]?.[currentQuestion.id]}
+              value={(answers[currentSection as keyof AssessmentAnswers] as any)?.[currentQuestion.id]}
               onChange={(value) => handleAnswer(currentQuestion.id, value)}
               onNext={handleNext}
               showNext={!isSubmitting}
