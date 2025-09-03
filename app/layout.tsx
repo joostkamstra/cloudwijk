@@ -79,12 +79,12 @@ export const metadata: Metadata = {
   },
 }
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
-  const locale = getCurrentLocale()
+  const locale = 'nl'
 
   return (
     <html lang={locale} className={inter.variable}>

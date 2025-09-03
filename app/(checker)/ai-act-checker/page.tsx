@@ -7,22 +7,19 @@ import { getI18n } from '@/lib/i18n/server'
 import { Header } from '@/components/layout/header'
 import { Footer } from '@/components/layout/footer'
 
-export async function generateMetadata(): Promise<Metadata> {
-  const t = await getI18n()
-  
+export function generateMetadata(): Metadata {
   return {
-    title: t('checker.title'),
-    description: t('checker.subtitle'),
+    title: 'EU AI Act Compliance Checker',
+    description: 'Controleer of uw AI-systeem voldoet aan de EU AI Act verordening 2024/1689',
     openGraph: {
-      title: t('checker.title'),
-      description: t('checker.subtitle'),
+      title: 'EU AI Act Compliance Checker',
+      description: 'Controleer of uw AI-systeem voldoet aan de EU AI Act verordening 2024/1689',
       type: 'website',
     },
   }
 }
 
-export default async function AIActCheckerPage() {
-  const t = await getI18n()
+export default function AIActCheckerPage() {
 
   const features = [
     'Volledige dekking van EU verordening 2024/1689',
@@ -55,11 +52,11 @@ export default async function AIActCheckerPage() {
               </div>
               
               <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
-                {t('checker.intro.title')}
+                Gratis AI Act Compliance Check
               </h1>
               
               <p className="mt-6 text-xl text-gray-600">
-                {t('checker.intro.description')}
+                Krijg in 10 minuten duidelijkheid over de AI Act-eisen voor uw systeem. Ontvang een gedetailleerd rapport met concrete actieplannen.
               </p>
 
               {/* Features */}
@@ -78,12 +75,12 @@ export default async function AIActCheckerPage() {
               <div className="mt-10">
                 <Button asChild size="lg" className="text-lg px-8 py-4">
                   <Link href="/ai-act-checker/assessment">
-                    {t('checker.intro.cta')}
+                    Start Assessment
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Link>
                 </Button>
                 <p className="mt-3 text-sm text-gray-500">
-                  {t('checker.intro.estimatedTime')}
+                  Geschatte tijd: 8-12 minuten
                 </p>
               </div>
             </div>
@@ -178,7 +175,7 @@ export default async function AIActCheckerPage() {
               </h3>
               <div className="text-sm text-gray-600 space-y-3">
                 <p>
-                  {t('checker.intro.disclaimer')}
+                  Dit is een educatief hulpmiddel en vervangt geen juridisch advies. Voor definitieve compliance-beslissingen raden we aan een AI Act specialist te raadplegen.
                 </p>
                 <p>
                   <strong>Gebaseerd op EU AI Act verordening 2024/1689.</strong> Laatste update: december 2024. 

@@ -1,11 +1,33 @@
-import { createI18nServer } from 'next-international/server'
-import { getValidLocale } from './config'
+import nl from './nl'
+import en from './en'
 
-export const { getI18n, getScopedI18n, getStaticParams, getCurrentLocale } =
-  createI18nServer({
-    nl: () => import('./nl'),
-    en: () => import('./en'),
-  })
+const translations = { nl, en }
+
+export function getI18n(locale: 'nl' | 'en' = 'nl') {
+  const t = translations[locale]
+  return (key: string) => {
+    try {
+      const keys = key.split('.')
+      let value: any = t
+      for (const k of keys) {
+        if (value && typeof value === 'object') {
+          value = value[k]
+        } else {
+          console.warn(`Translation key not found: ${key} at ${k}`)
+          return key
+        }
+      }
+      return value || key
+    } catch (error) {
+      console.error(`Translation error for key ${key}:`, error)
+      return key
+    }
+  }
+}
+
+export function getCurrentLocale() {
+  return 'nl' as const
+}
 
 export function getLocaleFromRequest(request?: Request): string {
   if (!request) return 'nl'
