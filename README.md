@@ -196,4 +196,4 @@ MIT License - see LICENSE file
 **Built with ❤️ for European AI compliance**
 
 *Radio Kootwijk (1918) made NL independent from British cables.  
-Cloudwijk (2024) makes Europe independent from US AI platforms.*
+Cloudwijk (2024) makes Europe independent from US AI platforms.*# Deployment trigger
