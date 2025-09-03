@@ -2,7 +2,8 @@ import { NextRequest, NextResponse } from 'next/server'
 import { z } from 'zod'
 import { Resend } from 'resend'
 import { supabaseAdmin } from '@/lib/db/supabase'
-import { sanitizeString } from '@/lib/utils'
+import { apiRateLimit } from '@/lib/middleware/rate-limit'
+import { sanitizeInput } from '@/lib/middleware/input-validation'
 
 const resend = new Resend(process.env.RESEND_API_KEY)
 
@@ -15,6 +16,11 @@ const sendEmailSchema = z.object({
 })
 
 export async function POST(request: NextRequest) {
+  const rateLimitResponse = apiRateLimit(request)
+  if (rateLimitResponse) {
+    return rateLimitResponse
+  }
+
   try {
     const body = await request.json()
     const { type, recipient, data, assessmentId, leadId } = sendEmailSchema.parse(body)
@@ -153,7 +159,7 @@ function generateAssessmentReportEmail(data: any): { subject: string; html: stri
         </div>
         
         <div class="content">
-          <p>Hallo ${name ? sanitizeString(name) : 'daar'},</p>
+          <p>Hallo ${name ? sanitizeInput(name) : 'daar'},</p>
           
           <p>Bedankt voor het uitvoeren van onze AI Act compliance assessment. Uw persoonlijke rapport is nu beschikbaar!</p>
           
@@ -200,7 +206,7 @@ function generateAssessmentReportEmail(data: any): { subject: string; html: stri
   `
   
   const text = `
-Hallo ${name ? sanitizeString(name) : 'daar'},
+Hallo ${name ? sanitizeInput(name) : 'daar'},
 
 Bedankt voor het uitvoeren van onze AI Act compliance assessment!
 
@@ -227,26 +233,26 @@ Dit rapport dient als educatief hulpmiddel en vervangt geen juridisch advies.
 function generateContactFormEmail(data: any): { subject: string; html: string; text: string } {
   const { name, email, company, message } = data
   
-  const subject = `Nieuwe contactaanvraag van ${sanitizeString(name)}`
+  const subject = `Nieuwe contactaanvraag van ${sanitizeInput(name)}`
   
   const html = `
     <h2>Nieuwe contactaanvraag</h2>
-    <p><strong>Naam:</strong> ${sanitizeString(name)}</p>
-    <p><strong>E-mail:</strong> ${sanitizeString(email)}</p>
-    ${company ? `<p><strong>Bedrijf:</strong> ${sanitizeString(company)}</p>` : ''}
+    <p><strong>Naam:</strong> ${sanitizeInput(name)}</p>
+    <p><strong>E-mail:</strong> ${sanitizeInput(email)}</p>
+    ${company ? `<p><strong>Bedrijf:</strong> ${sanitizeInput(company)}</p>` : ''}
     <p><strong>Bericht:</strong></p>
-    <p>${sanitizeString(message).replace(/\n/g, '<br>')}</p>
+    <p>${sanitizeInput(message).replace(/\n/g, '<br>')}</p>
   `
   
   const text = `
 Nieuwe contactaanvraag
 
-Naam: ${sanitizeString(name)}
-E-mail: ${sanitizeString(email)}
-${company ? `Bedrijf: ${sanitizeString(company)}` : ''}
+Naam: ${sanitizeInput(name)}
+E-mail: ${sanitizeInput(email)}
+${company ? `Bedrijf: ${sanitizeInput(company)}` : ''}
 
 Bericht:
-${sanitizeString(message)}
+${sanitizeInput(message)}
   `
 
   return { subject, html, text }
@@ -259,7 +265,7 @@ function generateWelcomeEmail(data: any): { subject: string; html: string; text:
   
   const html = `
     <h1>Welkom bij Cloudwijk! 🎉</h1>
-    <p>Hallo ${name ? sanitizeString(name) : 'daar'},</p>
+    <p>Hallo ${name ? sanitizeInput(name) : 'daar'},</p>
     <p>Welkom bij de Cloudwijk community! U hebt de eerste stap gezet naar EU AI Act compliance.</p>
     <p>In de komende dagen ontvangt u waardevole tips en updates over AI governance in Europa.</p>
   `
@@ -267,7 +273,7 @@ function generateWelcomeEmail(data: any): { subject: string; html: string; text:
   const text = `
 Welkom bij Cloudwijk!
 
-Hallo ${name ? sanitizeString(name) : 'daar'},
+Hallo ${name ? sanitizeInput(name) : 'daar'},
 
 Welkom bij de Cloudwijk community! U hebt de eerste stap gezet naar EU AI Act compliance.
 

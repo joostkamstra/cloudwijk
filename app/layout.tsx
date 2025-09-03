@@ -5,6 +5,8 @@ import { SpeedInsights } from '@vercel/speed-insights/next'
 import { I18nProviderClient } from '@/lib/i18n/client'
 import { getCurrentLocale } from '@/lib/i18n/server'
 import { Toaster } from '@/components/ui/toaster'
+import { SkipLink } from '@/components/accessibility/skip-link'
+import ErrorBoundary from '@/components/error/error-boundary'
 import './globals.css'
 
 const inter = Inter({ 
@@ -96,9 +98,12 @@ export default function RootLayout({
         <link rel="manifest" href="/site.webmanifest" />
       </head>
       <body className="font-sans antialiased">
+        <SkipLink />
         <I18nProviderClient locale={locale}>
-          {children}
-          <Toaster />
+          <ErrorBoundary>
+            {children}
+            <Toaster />
+          </ErrorBoundary>
         </I18nProviderClient>
         <Analytics />
         <SpeedInsights />

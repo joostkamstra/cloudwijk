@@ -1,28 +1,19 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { z } from 'zod'
-import { sanitizeString } from '@/lib/utils'
-
-const contactSchema = z.object({
-  name: z.string().min(1, 'Naam is verplicht'),
-  email: z.string().email('Ongeldig e-mailadres'),
-  company: z.string().optional(),
-  message: z.string().min(10, 'Bericht moet minimaal 10 karakters zijn'),
-})
+import { contactRateLimit } from '@/lib/middleware/rate-limit'
+import { ContactFormSchema, validateAndSanitize } from '@/lib/middleware/input-validation'
 
 export async function POST(request: NextRequest) {
+  const rateLimitResponse = contactRateLimit(request)
+  if (rateLimitResponse) {
+    return rateLimitResponse
+  }
+
   try {
     const body = await request.json()
-    const { name, email, company, message } = contactSchema.parse(body)
+    const sanitizedData = validateAndSanitize(ContactFormSchema, body)
+    const { name, email, company, message } = sanitizedData
 
-    // Sanitize inputs
-    const sanitizedData = {
-      name: sanitizeString(name),
-      email: sanitizeString(email),
-      company: company ? sanitizeString(company) : undefined,
-      message: sanitizeString(message),
-    }
-
-    // Rate limiting check (simple implementation)
     const clientIP = request.headers.get('x-forwarded-for') || request.headers.get('x-real-ip') || 'unknown'
     
     // Anti-spam: honeypot and timing checks could be added here

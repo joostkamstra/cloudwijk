@@ -1,14 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { z } from 'zod'
 import { supabaseAdmin } from '@/lib/db/supabase'
-import { sanitizeString } from '@/lib/utils'
+import { apiRateLimit } from '@/lib/middleware/rate-limit'
+import { LeadSchema, validateAndSanitize } from '@/lib/middleware/input-validation'
 
-const leadSchema = z.object({
-  email: z.string().email(),
-  name: z.string().optional(),
-  company: z.string().optional(),
-  role: z.string().optional(),
-  industry: z.string().optional(),
+const extendedLeadSchema = LeadSchema.extend({
   companySize: z.string().optional(),
   timeline: z.string().optional(),
   interests: z.array(z.string()).optional(),
@@ -19,24 +15,20 @@ const leadSchema = z.object({
   utmCampaign: z.string().optional(),
 })
 
-const updateLeadSchema = leadSchema.partial().extend({
+const updateLeadSchema = extendedLeadSchema.partial().extend({
   id: z.string(),
 })
 
 // POST - Create or update lead
 export async function POST(request: NextRequest) {
+  const rateLimitResponse = apiRateLimit(request)
+  if (rateLimitResponse) {
+    return rateLimitResponse
+  }
+
   try {
     const body = await request.json()
-    const leadData = leadSchema.parse(body)
-
-    // Sanitize string inputs
-    const sanitizedData = {
-      ...leadData,
-      name: leadData.name ? sanitizeString(leadData.name) : undefined,
-      company: leadData.company ? sanitizeString(leadData.company) : undefined,
-      role: leadData.role ? sanitizeString(leadData.role) : undefined,
-      industry: leadData.industry ? sanitizeString(leadData.industry) : undefined,
-    }
+    const sanitizedData = validateAndSanitize(extendedLeadSchema, body)
 
     // Calculate lead score based on provided information
     const leadScore = calculateLeadScore(sanitizedData)

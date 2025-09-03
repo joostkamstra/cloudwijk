@@ -4,6 +4,8 @@ import { v4 as uuidv4 } from 'uuid'
 import { supabaseAdmin } from '@/lib/db/supabase'
 import { RiskCalculator } from '@/lib/ai-act/scoring'
 import { AssessmentAnswers } from '@/lib/ai-act/types'
+import { assessmentRateLimit } from '@/lib/middleware/rate-limit'
+import { validateAndSanitize } from '@/lib/middleware/input-validation'
 
 const assessmentSchema = z.object({
   leadId: z.string().optional(),
@@ -67,9 +69,15 @@ const assessmentSchema = z.object({
 
 // POST - Create new assessment
 export async function POST(request: NextRequest) {
+  const rateLimitResponse = assessmentRateLimit(request)
+  if (rateLimitResponse) {
+    return rateLimitResponse
+  }
+
   try {
     const body = await request.json()
-    const { leadId, sessionId, answers } = assessmentSchema.parse(body)
+    const validatedData = validateAndSanitize(assessmentSchema, body)
+    const { leadId, sessionId, answers } = validatedData
 
     // Calculate risk using our AI Act logic
     const calculator = new RiskCalculator(answers as AssessmentAnswers)
