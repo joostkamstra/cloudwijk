@@ -18,7 +18,10 @@ export type HighRiskCategory =
   | 'justice'
   | 'none'
 
-export type ConformityPath = 'ANNEX_VI' | 'ANNEX_VII'
+export enum ConformityPath {
+  ANNEX_VI = 'ANNEX_VI',
+  ANNEX_VII = 'ANNEX_VII'
+}
 
 export interface ScopeAnswers {
   isAISystem: 'yes' | 'no' | 'unsure'

@@ -78,9 +78,11 @@ export default function AssessmentPage() {
       const currentSectionIndex = questionSections.indexOf(currentSection as any)
       if (currentSectionIndex < questionSections.length - 1) {
         const nextSection = questionSections[currentSectionIndex + 1]
-        setCurrentSection(nextSection)
-        setCurrentQuestionIndex(0)
-        setCurrentStep(currentStep + 1)
+        if (nextSection) {
+          setCurrentSection(nextSection)
+          setCurrentQuestionIndex(0)
+          setCurrentStep(currentStep + 1)
+        }
       } else {
         // Assessment complete
         handleSubmitAssessment()
