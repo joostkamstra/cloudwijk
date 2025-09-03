@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <!-- Homepage -->
+  <url>
+    <loc>https://cloudwijk.vercel.app/</loc>
+    <lastmod>2024-12-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://cloudwijk.vercel.app/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cloudwijk.vercel.app/en"/>
+  </url>
+
+  <!-- AI Act Checker -->
+  <url>
+    <loc>https://cloudwijk.vercel.app/ai-act-checker</loc>
+    <lastmod>2024-12-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://cloudwijk.vercel.app/ai-act-checker"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cloudwijk.vercel.app/en/ai-act-checker"/>
+  </url>
+
+  <!-- About -->
+  <url>
+    <loc>https://cloudwijk.vercel.app/about</loc>
+    <lastmod>2024-12-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://cloudwijk.vercel.app/about"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cloudwijk.vercel.app/en/about"/>
+  </url>
+
+  <!-- Platform -->
+  <url>
+    <loc>https://cloudwijk.vercel.app/platform</loc>
+    <lastmod>2024-12-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://cloudwijk.vercel.app/platform"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cloudwijk.vercel.app/en/platform"/>
+  </url>
+
+  <!-- Contact -->
+  <url>
+    <loc>https://cloudwijk.vercel.app/contact</loc>
+    <lastmod>2024-12-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://cloudwijk.vercel.app/contact"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cloudwijk.vercel.app/en/contact"/>
+  </url>
+
+</urlset>

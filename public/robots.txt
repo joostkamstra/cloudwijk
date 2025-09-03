@@ -1,0 +1,19 @@
+User-agent: *
+Allow: /
+
+# AI Act Checker - main entry point
+Allow: /ai-act-checker
+
+# Marketing pages
+Allow: /about
+Allow: /platform  
+Allow: /contact
+
+# Block admin and API routes
+Disallow: /admin
+Disallow: /api
+
+# Block report URLs (private)
+Disallow: /ai-act-checker/report
+
+Sitemap: https://cloudwijk.vercel.app/sitemap.xml
