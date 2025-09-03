@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
-import { TrendingUp, Target, DollarSign, Shield, Users, Rocket, CheckCircle, ArrowRight, BarChart3, PieChart, Trophy, Lightbulb } from 'lucide-react'
+import { TrendingUp, Target, DollarSign, Shield, Users, Rocket, CheckCircle, ArrowRight, BarChart3, PieChart, Trophy, Lightbulb, LucideIcon } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Progress } from '@/components/ui/progress'
@@ -80,8 +80,8 @@ export default async function InvestorsPage() {
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {marketTrends.map((trend: any, index: number) => {
-              const icons = [Rocket, Shield, Target]
-              const IconComponent = icons[index]
+              const icons = [Rocket, Shield, Target] as const
+              const IconComponent = icons[index] as React.ComponentType<{ className?: string }>
               const colors = ['text-purple-500', 'text-blue-500', 'text-green-500']
               const bgColors = ['bg-purple-50', 'bg-blue-50', 'bg-green-50']
               
@@ -148,8 +148,8 @@ export default async function InvestorsPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {advantages.map((advantage: any, index: number) => {
-              const icons = [Trophy, Rocket, BarChart3, Shield]
-              const IconComponent = icons[index]
+              const icons = [Trophy, Rocket, BarChart3, Shield] as const
+              const IconComponent = icons[index] as React.ComponentType<{ className?: string }>
               const colors = ['text-yellow-500', 'text-purple-500', 'text-blue-500', 'text-green-500']
               const bgColors = ['bg-yellow-50', 'bg-purple-50', 'bg-blue-50', 'bg-green-50']
               
