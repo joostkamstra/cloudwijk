@@ -74,7 +74,7 @@ export async function POST(request: NextRequest) {
     headers.set('Content-Disposition', `attachment; filename="cloudwijk-ai-act-rapport-${assessmentId.slice(0, 8)}.pdf"`)
     headers.set('Cache-Control', 'private, no-cache')
 
-    return new NextResponse(pdfBuffer, {
+    return new NextResponse(pdfBuffer as any, {
       headers,
       status: 200,
     })
@@ -116,7 +116,7 @@ export async function GET(request: NextRequest) {
       body: JSON.stringify({ assessmentId }),
     })
 
-    return this.POST(postRequest)
+    return POST(postRequest)
 
   } catch (error) {
     console.error('Report GET error:', error)

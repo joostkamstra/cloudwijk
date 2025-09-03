@@ -116,12 +116,13 @@ export async function POST(request: NextRequest) {
 function generateAssessmentReportEmail(data: any): { subject: string; html: string; text: string } {
   const { name, riskCategory, complianceScore, reportUrl, assessmentId } = data
   
-  const riskLevelText = {
+  const riskLevelText: Record<string, string> = {
     'PROHIBITED': 'Verboden Systeem',
     'HIGH_RISK': 'Hoog-risico Systeem',
     'LIMITED_RISK': 'Beperkt Risico',
     'MINIMAL_RISK': 'Minimaal Risico'
-  }[riskCategory] || riskCategory
+  }
+  const riskText = riskLevelText[riskCategory] || riskCategory
 
   const subject = 'Uw AI Act Compliance Rapport is klaar'
   
@@ -158,7 +159,7 @@ function generateAssessmentReportEmail(data: any): { subject: string; html: stri
           
           <div style="text-align: center; margin: 30px 0;">
             <div class="risk-badge risk-${riskCategory.toLowerCase().replace('_', '-')}">
-              Classificatie: ${riskLevelText}
+              Classificatie: ${riskText}
             </div>
             <div style="font-size: 24px; font-weight: bold; color: #1e3a8a; margin: 10px 0;">
               Compliance Score: ${complianceScore}/100
@@ -204,7 +205,7 @@ Hallo ${name ? sanitizeString(name) : 'daar'},
 Bedankt voor het uitvoeren van onze AI Act compliance assessment!
 
 Uw resultaat:
-- Classificatie: ${riskLevelText}  
+- Classificatie: ${riskText}  
 - Compliance Score: ${complianceScore}/100
 
 Bekijk uw volledige rapport: ${reportUrl}

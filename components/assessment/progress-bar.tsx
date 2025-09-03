@@ -1,7 +1,6 @@
 'use client'
 
 import { Progress } from '@/components/ui/progress'
-import { useI18n } from '@/lib/i18n/client'
 
 interface ProgressBarProps {
   currentStep: number
@@ -11,7 +10,6 @@ interface ProgressBarProps {
 }
 
 export function ProgressBar({ currentStep, totalSteps, currentSection, className }: ProgressBarProps) {
-  const t = useI18n()
   const percentage = Math.round((currentStep / totalSteps) * 100)
 
   const sections = [
@@ -31,10 +29,10 @@ export function ProgressBar({ currentStep, totalSteps, currentSection, className
       <div className="mb-4">
         <div className="flex justify-between items-center mb-2">
           <span className="text-sm font-medium text-gray-700">
-            {t('checker.progress.step', { current: currentStep, total: totalSteps })}
+            Stap {currentStep} van {totalSteps}
           </span>
           <span className="text-sm font-medium text-cloudwijk-blue">
-            {t('checker.progress.completion', { percentage })}
+            {percentage}% voltooid
           </span>
         </div>
         <Progress value={percentage} className="h-2" />

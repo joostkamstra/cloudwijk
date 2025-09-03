@@ -8,7 +8,7 @@ const translations = { nl, en }
 
 const I18nContext = createContext<{
   locale: 'nl' | 'en'
-  t: typeof nl
+  t: any
 }>({
   locale: 'nl',
   t: nl
