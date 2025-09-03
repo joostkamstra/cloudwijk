@@ -1,13 +1,13 @@
 'use client'
 
 import { useState } from 'react'
-import { Metadata } from 'next'
-import { Mail, Phone, MapPin, Calendar, Send, CheckCircle } from 'lucide-react'
+import { Mail, Phone, MapPin, Calendar, Send, CheckCircle, Rocket, Building, GraduationCap, TrendingUp, Clock, Users, Globe } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Label } from '@/components/ui/label'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { useI18n } from '@/lib/i18n/client'
 import { useToast } from '@/components/ui/use-toast'
 
@@ -15,10 +15,14 @@ export default function ContactPage() {
   const t = useI18n()
   const { toast } = useToast()
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [selectedAudience, setSelectedAudience] = useState('')
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     company: '',
+    role: '',
+    audience: '',
+    useCase: '',
     message: '',
   })
 
@@ -36,16 +40,17 @@ export default function ContactPage() {
       if (response.ok) {
         toast({
           title: t('contact.form.success'),
-          description: 'We nemen binnen 24 uur contact op.',
+          description: t('contact.form.success'),
         })
-        setFormData({ name: '', email: '', company: '', message: '' })
+        setFormData({ name: '', email: '', company: '', role: '', audience: '', useCase: '', message: '' })
+        setSelectedAudience('')
       } else {
         throw new Error('Failed to send message')
       }
     } catch (error) {
       toast({
         title: t('contact.form.error'),
-        description: 'Probeer het opnieuw of mail direct naar hallo@cloudwijk.eu',
+        description: t('contact.form.error'),
         variant: 'destructive',
       })
     } finally {
@@ -53,76 +58,184 @@ export default function ContactPage() {
     }
   }
 
-  const contactInfo = [
+  const audiences = [
     {
+      id: 'startups',
+      icon: Rocket,
+      title: t('contact.audiences.startups.title'),
+      description: t('contact.audiences.startups.description'),
+      benefits: t('contact.audiences.startups.benefits'),
+      cta: t('contact.audiences.startups.cta'),
+      color: 'text-purple-500',
+      bgColor: 'bg-purple-50',
+      borderColor: 'border-purple-200',
+    },
+    {
+      id: 'enterprise',
+      icon: Building,
+      title: t('contact.audiences.enterprise.title'),
+      description: t('contact.audiences.enterprise.description'),
+      benefits: t('contact.audiences.enterprise.benefits'),
+      cta: t('contact.audiences.enterprise.cta'),
+      color: 'text-blue-500',
+      bgColor: 'bg-blue-50',
+      borderColor: 'border-blue-200',
+    },
+    {
+      id: 'research',
+      icon: GraduationCap,
+      title: t('contact.audiences.research.title'),
+      description: t('contact.audiences.research.description'),
+      benefits: t('contact.audiences.research.benefits'),
+      cta: t('contact.audiences.research.cta'),
+      color: 'text-green-500',
+      bgColor: 'bg-green-50',
+      borderColor: 'border-green-200',
+    },
+    {
+      id: 'investors',
+      icon: TrendingUp,
+      title: t('contact.audiences.investors.title'),
+      description: t('contact.audiences.investors.description'),
+      benefits: t('contact.audiences.investors.benefits'),
+      cta: t('contact.audiences.investors.cta'),
+      color: 'text-yellow-500',
+      bgColor: 'bg-yellow-50',
+      borderColor: 'border-yellow-200',
+    },
+  ]
+
+  const contactChannels = [
+    {
+      ...t('contact.info.general'),
       icon: Mail,
-      title: 'E-mail',
-      value: 'hallo@cloudwijk.eu',
-      href: 'mailto:hallo@cloudwijk.eu',
       color: 'text-blue-500',
       bgColor: 'bg-blue-50',
     },
     {
-      icon: Phone,
-      title: 'Telefoon',
-      value: '+31 (0)20 123 4567',
-      href: 'tel:+31201234567',
+      ...t('contact.info.sales'),
+      icon: Users,
       color: 'text-green-500',
       bgColor: 'bg-green-50',
     },
     {
+      ...t('contact.info.technical'),
+      icon: Phone,
+      color: 'text-purple-500',
+      bgColor: 'bg-purple-50',
+    },
+    {
+      ...t('contact.info.investors'),
+      icon: TrendingUp,
+      color: 'text-yellow-500',
+      bgColor: 'bg-yellow-50',
+    },
+  ]
+
+  const locations = [
+    {
+      ...t('contact.locations.netherlands'),
       icon: MapPin,
-      title: 'Locatie',
-      value: 'Amsterdam, Nederland',
-      href: null,
+      color: 'text-orange-500',
+      bgColor: 'bg-orange-50',
+    },
+    {
+      ...t('contact.locations.sweden'),
+      icon: Globe,
+      color: 'text-blue-500',
+      bgColor: 'bg-blue-50',
+    },
+    {
+      ...t('contact.locations.france'),
+      icon: Globe,
       color: 'text-purple-500',
       bgColor: 'bg-purple-50',
     },
   ]
 
-  const faqs = [
-    {
-      question: 'Hoe snel krijg ik mijn AI Act rapport?',
-      answer: 'Direct na het voltooien van de assessment. Het rapport wordt automatisch gegenereerd en naar uw e-mail verzonden.',
-    },
-    {
-      question: 'Is de assessment echt gratis?',
-      answer: 'Ja, de AI Act Compliance Checker is volledig gratis. Geen verborgen kosten of verplichtingen.',
-    },
-    {
-      question: 'Hoe juridisch betrouwbaar is het rapport?',
-      answer: 'Het rapport is gebaseerd op EU verordening 2024/1689 en wordt regelmatig bijgewerkt. Voor definitieve juridische beslissingen raden we aan een specialist te raadplegen.',
-    },
-    {
-      question: 'Werken jullie ook met niet-Nederlandse organisaties?',
-      answer: 'Ja, we ondersteunen alle EU-organisaties. Ons platform is beschikbaar in Nederlands en Engels.',
-    },
-  ]
+  const faqItems = t('contact.faq.items')
 
   return (
     <div className="py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="mx-auto max-w-2xl text-center">
+        {/* Hero Section */}
+        <div className="mx-auto max-w-4xl text-center mb-16">
           <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
-            {t('contact.title')}
+            {t('contact.hero.title')}
           </h1>
-          <p className="mt-6 text-lg leading-8 text-gray-600">
-            {t('contact.subtitle')}
+          <p className="mt-6 text-xl text-gray-600 leading-relaxed">
+            {t('contact.hero.subtitle')}
           </p>
         </div>
 
-        <div className="mx-auto mt-16 grid max-w-5xl grid-cols-1 gap-16 lg:grid-cols-2">
-          {/* Contact Form */}
-          <div>
-            <Card className="border-0 shadow-lg">
-              <CardHeader>
+        {/* Target Audiences */}
+        <div className="mb-24">
+          <div className="mx-auto max-w-2xl text-center mb-12">
+            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+              {t('contact.audiences.title')}
+            </h2>
+            <p className="mt-4 text-lg text-gray-600">
+              {t('contact.audiences.subtitle')}
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {audiences.map((audience) => {
+              const IconComponent = audience.icon
+              return (
+                <Card 
+                  key={audience.id} 
+                  className={`border-0 shadow-lg ${audience.borderColor} bg-white hover:shadow-xl transition-all cursor-pointer ${
+                    selectedAudience === audience.id ? 'ring-2 ring-cloudwijk-blue' : ''
+                  }`}
+                  onClick={() => {
+                    setSelectedAudience(audience.id)
+                    setFormData(prev => ({ ...prev, audience: audience.id }))
+                  }}
+                >
+                  <CardHeader className="pb-4">
+                    <div className={`inline-flex h-12 w-12 items-center justify-center rounded-lg ${audience.bgColor}`}>
+                      <IconComponent className={`h-6 w-6 ${audience.color}`} />
+                    </div>
+                    <CardTitle className="text-lg">{audience.title}</CardTitle>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    <CardDescription className="text-sm text-gray-600">
+                      {audience.description}
+                    </CardDescription>
+                    <div className="space-y-2">
+                      {audience.benefits.map((benefit: string, idx: number) => (
+                        <div key={idx} className="flex items-center text-xs text-gray-600">
+                          <CheckCircle className="h-3 w-3 text-green-500 mr-2 flex-shrink-0" />
+                          {benefit}
+                        </div>
+                      ))}
+                    </div>
+                    <Button 
+                      size="sm" 
+                      variant="outline" 
+                      className={`w-full ${selectedAudience === audience.id ? 'bg-cloudwijk-blue text-white' : ''}`}
+                    >
+                      {audience.cta}
+                    </Button>
+                  </CardContent>
+                </Card>
+              )
+            })}
+          </div>
+        </div>
+
+        {/* Contact Form */}
+        <div className="mb-24">
+          <div className="mx-auto max-w-4xl">
+            <Card className="border-0 shadow-xl">
+              <CardHeader className="text-center">
                 <CardTitle className="text-2xl">{t('contact.form.title')}</CardTitle>
-                <CardDescription>
-                  We nemen binnen 24 uur contact op voor een persoonlijk gesprek.
+                <CardDescription className="text-lg">
+                  {t('contact.form.subtitle')}
                 </CardDescription>
               </CardHeader>
-              <CardContent>
+              <CardContent className="p-8">
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
                     <div>
@@ -149,15 +262,56 @@ export default function ContactPage() {
                     </div>
                   </div>
 
-                  <div>
-                    <Label htmlFor="company">{t('contact.form.company')}</Label>
-                    <Input
-                      id="company"
-                      type="text"
-                      value={formData.company}
-                      onChange={(e) => setFormData(prev => ({ ...prev, company: e.target.value }))}
-                      className="mt-2"
-                    />
+                  <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+                    <div>
+                      <Label htmlFor="company">{t('contact.form.company')}</Label>
+                      <Input
+                        id="company"
+                        type="text"
+                        value={formData.company}
+                        onChange={(e) => setFormData(prev => ({ ...prev, company: e.target.value }))}
+                        className="mt-2"
+                      />
+                    </div>
+                    <div>
+                      <Label htmlFor="role">{t('contact.form.role')}</Label>
+                      <Input
+                        id="role"
+                        type="text"
+                        value={formData.role}
+                        onChange={(e) => setFormData(prev => ({ ...prev, role: e.target.value }))}
+                        className="mt-2"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+                    <div>
+                      <Label htmlFor="audience">{t('contact.form.audience')}</Label>
+                      <Select value={formData.audience} onValueChange={(value) => setFormData(prev => ({ ...prev, audience: value }))}>
+                        <SelectTrigger className="mt-2">
+                          <SelectValue />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {Object.entries(t('contact.form.audienceOptions')).map(([key, value]) => (
+                            <SelectItem key={key} value={key}>{value as string}</SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    </div>
+                    <div>
+                      <Label htmlFor="useCase">{t('contact.form.useCase')}</Label>
+                      <Select value={formData.useCase} onValueChange={(value) => setFormData(prev => ({ ...prev, useCase: value }))}>
+                        <SelectTrigger className="mt-2">
+                          <SelectValue />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {Object.entries(t('contact.form.useCaseOptions')).map(([key, value]) => (
+                            <SelectItem key={key} value={key}>{value as string}</SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    </div>
                   </div>
 
                   <div>
@@ -169,17 +323,21 @@ export default function ContactPage() {
                       onChange={(e) => setFormData(prev => ({ ...prev, message: e.target.value }))}
                       required
                       className="mt-2"
-                      placeholder="Vertel ons over uw AI Act compliance uitdagingen..."
+                      placeholder={t('contact.form.messagePlaceholder')}
                     />
                   </div>
 
                   <Button
                     type="submit"
                     className="w-full"
+                    size="lg"
                     disabled={isSubmitting}
                   >
                     {isSubmitting ? (
-                      'Versturen...'
+                      <>
+                        <Clock className="mr-2 h-4 w-4 animate-spin" />
+                        Versturen...
+                      </>
                     ) : (
                       <>
                         <Send className="mr-2 h-4 w-4" />
@@ -191,93 +349,114 @@ export default function ContactPage() {
               </CardContent>
             </Card>
           </div>
+        </div>
 
-          {/* Contact Info & Additional */}
-          <div className="space-y-8">
-            {/* Contact Information */}
-            <div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-6">
-                {t('contact.info.title')}
-              </h3>
-              <div className="space-y-4">
-                {contactInfo.map((item, index) => {
-                  const IconComponent = item.icon
-                  const content = (
-                    <div className="flex items-center p-4 bg-white rounded-lg shadow-sm border hover:shadow-md transition-shadow">
-                      <div className={`h-12 w-12 flex items-center justify-center rounded-lg ${item.bgColor}`}>
-                        <IconComponent className={`h-6 w-6 ${item.color}`} />
+        {/* Contact Channels */}
+        <div className="mb-24">
+          <div className="mx-auto max-w-2xl text-center mb-12">
+            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+              {t('contact.info.title')}
+            </h2>
+            <p className="mt-4 text-lg text-gray-600">
+              {t('contact.info.subtitle')}
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {contactChannels.map((channel, index) => {
+              const IconComponent = channel.icon
+              return (
+                <Card key={index} className="border-0 shadow-lg hover:shadow-xl transition-shadow">
+                  <CardContent className="p-6 text-center">
+                    <div className={`mx-auto w-16 h-16 ${channel.bgColor} rounded-full flex items-center justify-center mb-4`}>
+                      <IconComponent className={`h-8 w-8 ${channel.color}`} />
+                    </div>
+                    <h3 className="text-lg font-semibold text-gray-900 mb-2">{channel.title}</h3>
+                    <a 
+                      href={`mailto:${channel.email}`}
+                      className="text-cloudwijk-blue font-medium hover:underline block mb-2"
+                    >
+                      {channel.email}
+                    </a>
+                    <p className="text-sm text-gray-600">{channel.response}</p>
+                  </CardContent>
+                </Card>
+              )
+            })}
+          </div>
+        </div>
+
+        {/* Locations */}
+        <div className="mb-24">
+          <div className="mx-auto max-w-2xl text-center mb-12">
+            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+              {t('contact.locations.title')}
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {locations.map((location, index) => {
+              const IconComponent = location.icon
+              return (
+                <Card key={index} className="border-0 shadow-lg">
+                  <CardHeader>
+                    <div className="flex items-center">
+                      <div className={`h-12 w-12 ${location.bgColor} rounded-lg flex items-center justify-center mr-4`}>
+                        <IconComponent className={`h-6 w-6 ${location.color}`} />
                       </div>
-                      <div className="ml-4">
-                        <h4 className="font-medium text-gray-900">{item.title}</h4>
-                        <p className="text-gray-600">{item.value}</p>
+                      <div>
+                        <CardTitle className="text-lg">{location.title}</CardTitle>
+                        <p className="text-sm text-gray-600">{location.address}</p>
                       </div>
                     </div>
-                  )
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-sm text-gray-600">{location.description}</p>
+                  </CardContent>
+                </Card>
+              )
+            })}
+          </div>
+        </div>
 
-                  return item.href ? (
-                    <a key={index} href={item.href} className="block">
-                      {content}
-                    </a>
-                  ) : (
-                    <div key={index}>{content}</div>
-                  )
-                })}
-              </div>
-            </div>
-
-            {/* Schedule Call CTA */}
-            <Card className="border-2 border-cloudwijk-blue/20 bg-gradient-to-r from-cloudwijk-blue/5 to-cloudwijk-light/5">
-              <CardContent className="p-6 text-center">
-                <Calendar className="mx-auto h-12 w-12 text-cloudwijk-blue mb-4" />
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                  {t('contact.cta.title')}
-                </h3>
-                <p className="text-gray-600 mb-4">
-                  {t('contact.cta.subtitle')}
-                </p>
-                <Button asChild>
+        {/* CTA */}
+        <div className="mb-24 text-center">
+          <Card className="border-2 border-cloudwijk-blue/20 bg-gradient-to-r from-cloudwijk-blue/5 to-cloudwijk-light/5 max-w-2xl mx-auto">
+            <CardContent className="p-8 text-center">
+              <Calendar className="mx-auto h-16 w-16 text-cloudwijk-blue mb-6" />
+              <h3 className="text-2xl font-semibold text-gray-900 mb-4">
+                {t('contact.cta.title')}
+              </h3>
+              <p className="text-lg text-gray-600 mb-6">
+                {t('contact.cta.subtitle')}
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button asChild size="lg">
                   <a href="https://calendly.com/cloudwijk" target="_blank" rel="noopener noreferrer">
                     {t('contact.cta.primary')}
                   </a>
                 </Button>
-              </CardContent>
-            </Card>
-
-            {/* Quick Facts */}
-            <div className="bg-gray-50 rounded-lg p-6">
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">
-                Snel aan de slag
-              </h3>
-              <div className="space-y-3">
-                {[
-                  'Gratis AI Act assessment in 10 minuten',
-                  'Direct PDF rapport met acties',
-                  'Nederlandse compliance specialisten',
-                  'EU-hosted platform zonder CLOUD Act risico',
-                ].map((item, index) => (
-                  <div key={index} className="flex items-center text-sm text-gray-600">
-                    <CheckCircle className="h-4 w-4 text-green-500 mr-3 flex-shrink-0" />
-                    {item}
-                  </div>
-                ))}
+                <Button variant="outline" size="lg">
+                  {t('contact.cta.secondary')}
+                </Button>
               </div>
-            </div>
-          </div>
+            </CardContent>
+          </Card>
         </div>
 
         {/* FAQ Section */}
-        <div className="mt-24">
+        <div>
           <div className="mx-auto max-w-2xl text-center mb-12">
             <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-              Veelgestelde vragen
+              {t('contact.faq.title')}
             </h2>
             <p className="mt-4 text-lg text-gray-600">
-              Antwoorden op de meest voorkomende vragen over onze diensten
+              {t('contact.faq.subtitle')}
             </p>
           </div>
 
           <div className="mx-auto max-w-3xl space-y-6">
-            {faqs.map((faq, index) => (
+            {faqItems.map((faq: any, index: number) => (
               <Card key={index} className="border-0 shadow-sm">
                 <CardContent className="p-6">
                   <h3 className="text-lg font-semibold text-gray-900 mb-3">
@@ -289,28 +468,6 @@ export default function ContactPage() {
                 </CardContent>
               </Card>
             ))}
-          </div>
-        </div>
-
-        {/* Office Hours */}
-        <div className="mt-16 text-center">
-          <div className="bg-white rounded-lg shadow-sm border p-8 max-w-2xl mx-auto">
-            <h3 className="text-xl font-semibold text-gray-900 mb-4">
-              Kantooruren
-            </h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm text-gray-600">
-              <div>
-                <p className="font-medium">Maandag - Vrijdag</p>
-                <p>09:00 - 18:00 CET</p>
-              </div>
-              <div>
-                <p className="font-medium">Weekend</p>
-                <p>Alleen voor urgente zaken</p>
-              </div>
-            </div>
-            <p className="mt-4 text-xs text-gray-500">
-              Voor urgente AI Act compliance vragen zijn we ook buiten kantooruren bereikbaar via e-mail.
-            </p>
           </div>
         </div>
       </div>

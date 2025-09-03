@@ -17,21 +17,25 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL || 'https://cloudwijk.vercel.app'),
   title: {
-    default: 'Cloudwijk — EU Sovereign AI Platform',
+    default: 'Cloudwijk — Europees AI-Infrastructuurplatform',
     template: '%s | Cloudwijk'
   },
-  description: 'EU-soeverein managed AI platform. EU AI Act compliance checker en complete AI-oplossingen voor Nederlandse organisaties.',
+  description: 'Het leidende Europese AI-infrastructuurplatform. GPU-cloud, CloudwikOS platform en Managed AI Services. Volledig EU-soeverein met compliance by design.',
   keywords: [
-    'EU AI Act',
-    'AI compliance',
+    'AI infrastructure',
+    'GPU cloud',
+    'AI inference',
     'EU sovereign AI',
-    'GDPR compliant AI',
-    'Dutch AI platform',
-    'AI Act checker',
-    'European AI solutions',
-    'AI governance',
-    'compliance assessment',
-    'regulatory technology'
+    'European AI platform',
+    'AI computing',
+    'machine learning infrastructure',
+    'NVIDIA GPU',
+    'AI model hosting',
+    'EU AI Act compliant',
+    'data sovereignty',
+    'CloudwikOS',
+    'managed AI services',
+    'European datacenter'
   ],
   authors: [{ name: 'Cloudwijk', url: 'https://cloudwijk.eu' }],
   creator: 'Cloudwijk',
@@ -47,21 +51,21 @@ export const metadata: Metadata = {
     alternateLocale: ['en_US'],
     url: '/',
     siteName: 'Cloudwijk',
-    title: 'Cloudwijk — EU Sovereign AI Platform',
-    description: 'EU-soeverein managed AI platform. EU AI Act compliance checker en complete AI-oplossingen.',
+    title: 'Cloudwijk — Europees AI-Infrastructuurplatform',
+    description: 'Het leidende Europese AI-infrastructuurplatform. GPU-cloud tot Managed AI Services, volledig EU-soeverein.',
     images: [
       {
         url: '/og.png',
         width: 1200,
         height: 630,
-        alt: 'Cloudwijk — EU Sovereign AI',
+        alt: 'Cloudwijk — Europees AI Infrastructure',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Cloudwijk — EU Sovereign AI Platform',
-    description: 'EU-soeverein managed AI platform. EU AI Act compliance checker.',
+    title: 'Cloudwijk — Europees AI-Infrastructuurplatform',
+    description: 'Het leidende Europese AI-infrastructuurplatform. GPU-cloud tot Managed AI Services.',
     images: ['/og.png'],
   },
   robots: {

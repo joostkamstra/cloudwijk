@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
-import { CheckCircle, ArrowRight, Star, Shield, Zap, Globe, Users } from 'lucide-react'
+import { CheckCircle, ArrowRight, Server, Settings, Cpu, Shield, Globe, Zap } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { getI18n } from '@/lib/i18n/server'
@@ -17,66 +17,39 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function PlatformPage() {
   const t = await getI18n()
 
-  const features = [
+  const layers = [
     {
-      name: t('platform.features.assessment.title'),
-      description: t('platform.features.assessment.description'),
-      price: t('platform.features.assessment.price'),
-      icon: CheckCircle,
+      name: t('platform.layers.infrastructure.title'),
+      subtitle: t('platform.layers.infrastructure.subtitle'),
+      description: t('platform.layers.infrastructure.description'),
+      features: t('platform.layers.infrastructure.features'),
+      price: t('platform.layers.infrastructure.price'),
+      icon: Server,
       color: 'text-green-500',
       bgColor: 'bg-green-50',
-      features: [
-        'Volledige EU AI Act coverage',
-        'Juridisch correcte classificatie',
-        'Gedetailleerd PDF rapport',
-        'Concrete actieplannen',
-        'E-mail notificaties',
-      ],
+      borderColor: 'border-green-200',
     },
     {
-      name: t('platform.features.governance.title'),
-      description: t('platform.features.governance.description'),
-      price: t('platform.features.governance.price'),
-      icon: Shield,
+      name: t('platform.layers.platform.title'),
+      subtitle: t('platform.layers.platform.subtitle'),
+      description: t('platform.layers.platform.description'),
+      features: t('platform.layers.platform.features'),
+      price: t('platform.layers.platform.price'),
+      icon: Settings,
       color: 'text-blue-500',
       bgColor: 'bg-blue-50',
-      features: [
-        'Risk management systeem',
-        'Compliance monitoring',
-        'Document management',
-        'Audit trails',
-        'Team collaboration',
-      ],
+      borderColor: 'border-blue-200',
     },
     {
-      name: t('platform.features.infrastructure.title'),
-      description: t('platform.features.infrastructure.description'),
-      price: t('platform.features.infrastructure.price'),
-      icon: Zap,
+      name: t('platform.layers.services.title'),
+      subtitle: t('platform.layers.services.subtitle'),
+      description: t('platform.layers.services.description'),
+      features: t('platform.layers.services.features'),
+      price: t('platform.layers.services.price'),
+      icon: Cpu,
       color: 'text-purple-500',
       bgColor: 'bg-purple-50',
-      features: [
-        'EU-hosted AI models',
-        'Custom fine-tuning',
-        'API access',
-        'SLA guarantees',
-        '24/7 monitoring',
-      ],
-    },
-    {
-      name: t('platform.features.consulting.title'),
-      description: t('platform.features.consulting.description'),
-      price: t('platform.features.consulting.price'),
-      icon: Users,
-      color: 'text-orange-500',
-      bgColor: 'bg-orange-50',
-      features: [
-        'AI Act specialisten',
-        'Implementation guidance',
-        'Legal review',
-        'Training sessies',
-        'Ongoing support',
-      ],
+      borderColor: 'border-purple-200',
     },
   ]
 
@@ -130,48 +103,60 @@ export default async function PlatformPage() {
           </p>
         </div>
 
-        {/* Features Grid */}
-        <div id="features" className="mt-24">
-          <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
-            {features.map((feature, index) => {
-              const IconComponent = feature.icon
-              return (
-                <Card key={index} className="border-0 shadow-lg relative">
-                  <CardHeader>
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center">
-                        <div className={`h-12 w-12 flex items-center justify-center rounded-lg ${feature.bgColor}`}>
-                          <IconComponent className={`h-6 w-6 ${feature.color}`} />
-                        </div>
-                        <div className="ml-4">
-                          <CardTitle className="text-xl">{feature.name}</CardTitle>
-                          <div className="text-2xl font-bold text-cloudwijk-blue mt-1">
-                            {feature.price}
-                          </div>
+        {/* Architecture Header */}
+        <div className="mt-24 mx-auto max-w-2xl text-center">
+          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+            {t('platform.architecture.title')}
+          </h2>
+          <p className="mt-4 text-lg text-gray-600">
+            {t('platform.architecture.subtitle')}
+          </p>
+        </div>
+
+        {/* Three-tier Architecture */}
+        <div className="mt-16 space-y-8">
+          {layers.map((layer, index) => {
+            const IconComponent = layer.icon
+            return (
+              <Card key={index} className={`border-0 shadow-lg ${layer.borderColor} bg-white`}>
+                <CardHeader>
+                  <div className="flex items-start justify-between">
+                    <div className="flex items-start">
+                      <div className={`h-12 w-12 flex items-center justify-center rounded-lg ${layer.bgColor} flex-shrink-0`}>
+                        <IconComponent className={`h-6 w-6 ${layer.color}`} />
+                      </div>
+                      <div className="ml-4">
+                        <CardTitle className="text-2xl">{layer.name}</CardTitle>
+                        <p className={`text-lg font-medium ${layer.color} mt-1`}>
+                          {layer.subtitle}
+                        </p>
+                        <div className="text-lg font-bold text-cloudwijk-blue mt-2">
+                          {layer.price}
                         </div>
                       </div>
                     </div>
-                  </CardHeader>
-                  <CardContent>
-                    <CardDescription className="text-base text-gray-600 mb-6">
-                      {feature.description}
-                    </CardDescription>
-                    <ul className="space-y-3">
-                      {feature.features.map((item, idx) => (
-                        <li key={idx} className="flex items-center">
-                          <CheckCircle className="h-4 w-4 text-green-500 mr-3 flex-shrink-0" />
-                          <span className="text-sm text-gray-600">{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </CardContent>
-                </Card>
-              )
-            })}
-          </div>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <CardDescription className="text-base text-gray-700 mb-6 leading-relaxed">
+                    {layer.description}
+                  </CardDescription>
+                  
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {layer.features.map((feature: string, idx: number) => (
+                      <div key={idx} className="flex items-start">
+                        <CheckCircle className="h-4 w-4 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
+                        <span className="text-sm text-gray-700 leading-relaxed">{feature}</span>
+                      </div>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            )
+          })}
         </div>
 
-        {/* Comparison Table */}
+        {/* Why Choose EU Platform */}
         <div className="mt-24">
           <div className="mx-auto max-w-2xl text-center mb-12">
             <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
@@ -223,99 +208,43 @@ export default async function PlatformPage() {
           </div>
         </div>
 
-        {/* Pricing Details */}
-        <div id="pricing" className="mt-24">
+        {/* Key Benefits */}
+        <div className="mt-24">
           <div className="mx-auto max-w-2xl text-center mb-12">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-              Transparante prijzen
+            <h2 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">
+              Waarom Cloudwijk onze klanten kiezen
             </h2>
-            <p className="mt-4 text-lg text-gray-600">
-              Geen verborgen kosten. Schaal mee met uw behoeften.
-            </p>
           </div>
 
-          <div className="bg-gray-50 rounded-2xl p-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              <div className="bg-white rounded-lg p-6 shadow-sm">
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">Starter</h3>
-                <div className="text-3xl font-bold text-cloudwijk-blue mb-4">Gratis</div>
-                <ul className="space-y-2 text-sm text-gray-600">
-                  <li className="flex items-center">
-                    <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                    AI Act Assessment
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                    PDF Rapport
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                    E-mail ondersteuning
-                  </li>
-                </ul>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="text-center">
+              <div className="mx-auto h-16 w-16 flex items-center justify-center rounded-full bg-green-50">
+                <Shield className="h-8 w-8 text-green-500" />
               </div>
-
-              <div className="bg-white rounded-lg p-6 shadow-sm">
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">Professional</h3>
-                <div className="text-3xl font-bold text-cloudwijk-blue mb-4">€2.500<span className="text-sm text-gray-500">/maand</span></div>
-                <ul className="space-y-2 text-sm text-gray-600">
-                  <li className="flex items-center">
-                    <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                    AI Governance Suite
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                    Compliance Monitoring
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                    Team toegang
-                  </li>
-                </ul>
+              <h3 className="mt-4 text-lg font-semibold text-gray-900">EU Datasoevereiniteit</h3>
+              <p className="mt-2 text-gray-600">
+                Alle data blijft binnen EU-grenzen, volledig gecontroleerd door EU-entiteiten
+              </p>
+            </div>
+            
+            <div className="text-center">
+              <div className="mx-auto h-16 w-16 flex items-center justify-center rounded-full bg-blue-50">
+                <Globe className="h-8 w-8 text-blue-500" />
               </div>
-
-              <div className="bg-white rounded-lg p-6 shadow-sm border-2 border-cloudwijk-blue relative">
-                <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                  <div className="bg-cloudwijk-blue text-white px-3 py-1 rounded-full text-sm font-medium">
-                    Populair
-                  </div>
-                </div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">Enterprise</h3>
-                <div className="text-3xl font-bold text-cloudwijk-blue mb-4">Op maat</div>
-                <ul className="space-y-2 text-sm text-gray-600">
-                  <li className="flex items-center">
-                    <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                    Managed AI Infrastructure
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                    Dedicated support
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                    SLA garanties
-                  </li>
-                </ul>
+              <h3 className="mt-4 text-lg font-semibold text-gray-900">Compliance by Design</h3>
+              <p className="mt-2 text-gray-600">
+                AI Act, NIS2 en GDPR compliance ingebouwd, niet achteraf toegevoegd
+              </p>
+            </div>
+            
+            <div className="text-center">
+              <div className="mx-auto h-16 w-16 flex items-center justify-center rounded-full bg-purple-50">
+                <Zap className="h-8 w-8 text-purple-500" />
               </div>
-
-              <div className="bg-white rounded-lg p-6 shadow-sm">
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">Consulting</h3>
-                <div className="text-3xl font-bold text-cloudwijk-blue mb-4">€250<span className="text-sm text-gray-500">/uur</span></div>
-                <ul className="space-y-2 text-sm text-gray-600">
-                  <li className="flex items-center">
-                    <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                    AI Act specialisten
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                    Implementation support
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                    Legal review
-                  </li>
-                </ul>
-              </div>
+              <h3 className="mt-4 text-lg font-semibold text-gray-900">Complete Stack</h3>
+              <p className="mt-2 text-gray-600">
+                Van GPU-hardware tot AI-diensten — alles uit één vertrouwde hand
+              </p>
             </div>
           </div>
         </div>
@@ -331,8 +260,8 @@ export default async function PlatformPage() {
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" asChild>
-                <Link href="/ai-act-checker">
-                  {t('platform.cta.primary')}
+                <Link href="/contact">
+                  Start met Cloudwijk
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>

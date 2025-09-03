@@ -20,9 +20,9 @@ export function Header({ className }: HeaderProps) {
 
   const navigation = [
     { name: t('nav.home'), href: '/' },
-    { name: t('nav.about'), href: '/about' },
     { name: t('nav.platform'), href: '/platform' },
-    { name: t('nav.checker'), href: '/ai-act-checker' },
+    { name: t('nav.about'), href: '/about' },
+    { name: t('nav.investors'), href: '/investors' },
     { name: t('nav.contact'), href: '/contact' },
   ]
 
@@ -78,8 +78,8 @@ export function Header({ className }: HeaderProps) {
 
             {/* CTA Button */}
             <Button asChild className="hidden sm:inline-flex">
-              <Link href="/ai-act-checker">
-                {t('nav.checker')}
+              <Link href="/contact">
+                {t('nav.cta')}
               </Link>
             </Button>
 
@@ -127,8 +127,8 @@ export function Header({ className }: HeaderProps) {
                 </Button>
                 
                 <Button asChild size="sm">
-                  <Link href="/ai-act-checker" onClick={() => setIsMenuOpen(false)}>
-                    {t('nav.checker')}
+                  <Link href="/contact" onClick={() => setIsMenuOpen(false)}>
+                    {t('nav.cta')}
                   </Link>
                 </Button>
               </div>

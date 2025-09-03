@@ -1,6 +1,6 @@
 'use client'
 
-import { CheckCircle, Shield, Zap, Users, FileText, BarChart3 } from 'lucide-react'
+import { CheckCircle, Shield, Zap, Users, FileText, BarChart3, Server, Settings, Cpu, TrendingUp, Target, GraduationCap, Building, Lightbulb } from 'lucide-react'
 import { useI18n } from '@/lib/i18n/client'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 
@@ -9,23 +9,23 @@ export function Features() {
 
   const features = [
     {
-      name: t('home.features.checker.title'),
-      description: t('home.features.checker.description'),
-      icon: CheckCircle,
+      name: t('home.features.gpuCloud.title'),
+      description: t('home.features.gpuCloud.description'),
+      icon: Server,
       color: 'text-green-500',
       bgColor: 'bg-green-50',
     },
     {
       name: t('home.features.platform.title'), 
       description: t('home.features.platform.description'),
-      icon: Zap,
+      icon: Settings,
       color: 'text-blue-500',
       bgColor: 'bg-blue-50',
     },
     {
-      name: t('home.features.consulting.title'),
-      description: t('home.features.consulting.description'),
-      icon: Users,
+      name: t('home.features.services.title'),
+      description: t('home.features.services.description'),
+      icon: Cpu,
       color: 'text-purple-500',
       bgColor: 'bg-purple-50',
     },
@@ -33,19 +33,19 @@ export function Features() {
 
   const benefits = [
     {
-      title: 'Juridisch correct',
-      description: 'Gebaseerd op EU verordening 2024/1689 met alle artikelen en uitzonderingen',
+      title: t('home.features.datasoevereiniteit'),
+      description: 'Alle data en workloads blijven binnen EU-grenzen, geen afhankelijkheid van Amerikaanse moederbedrijven',
+      icon: Shield,
+    },
+    {
+      title: t('home.features.complianceByDesign'),
+      description: 'Audit logs, EU-encryptie en AI Act compliance dashboard standaard ingebouwd',
       icon: FileText,
     },
     {
-      title: 'Real-time updates',
-      description: 'Automatisch bijgewerkt bij wijzigingen in wetgeving en implementatie-guidance',
-      icon: BarChart3,
-    },
-    {
-      title: 'Expert ondersteuning',
-      description: 'Toegang tot AI Act specialisten voor complexe compliance vragen',
-      icon: Shield,
+      title: t('home.features.duurzaamheid'),
+      description: '100% hernieuwbare energie, realtime CO₂-footprint inzicht en energie-efficiënte GPU\'s',
+      icon: Lightbulb,
     },
   ]
 
@@ -55,13 +55,13 @@ export function Features() {
         {/* Header */}
         <div className="mx-auto max-w-2xl lg:text-center">
           <h2 className="text-base font-semibold leading-7 text-cloudwijk-blue">
-            Complete AI governance
+            EU Sovereign AI Infrastructure
           </h2>
           <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
             {t('home.features.title')}
           </p>
           <p className="mt-6 text-lg leading-8 text-gray-600">
-            Van assessment tot implementatie — alles wat u nodig heeft voor AI Act compliance en verantwoorde AI-implementatie.
+            Van GPU-infrastructuur tot beheerde AI-diensten — alles wat u nodig heeft voor AI-inferentie binnen Europese kaders.
           </p>
         </div>
 
@@ -121,10 +121,10 @@ export function Features() {
           
           <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
             {[
-              { step: '01', title: 'Assessment', desc: 'Voer onze AI Act compliance check uit' },
-              { step: '02', title: 'Rapport', desc: 'Ontvang gedetailleerd rapport met acties' },
-              { step: '03', title: 'Implementatie', desc: 'Implementeer compliance maatregelen' },
-              { step: '04', title: 'Monitoring', desc: 'Blijvend compliance monitoring' },
+              { step: '01', title: 'Setup', desc: 'Snel aan boord met onze self-service omgeving' },
+              { step: '02', title: 'Deploy', desc: 'AI-modellen uitrollen op EU-infrastructuur' },
+              { step: '03', title: 'Scale', desc: 'Automatisch opschalen naar vraag' },
+              { step: '04', title: 'Monitor', desc: 'Realtime inzicht in prestaties en compliance' },
             ].map((item, index) => (
               <div key={index} className="text-center">
                 <div className="mx-auto w-12 h-12 bg-cloudwijk-blue text-white rounded-full flex items-center justify-center text-sm font-bold mb-4">

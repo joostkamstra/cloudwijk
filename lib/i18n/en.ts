@@ -40,38 +40,41 @@ export default {
     home: 'Home',
     about: 'About',
     platform: 'Platform',
-    checker: 'AI Act Checker',
+    investors: 'Investors',
     contact: 'Contact',
+    checker: 'AI Act Checker',
     admin: 'Admin',
     toggleLanguage: 'Switch to Dutch',
+    menu: 'Menu',
+    cta: 'Start with AI Infrastructure',
   },
 
   home: {
-    title: 'EU Sovereign AI Platform',
-    subtitle: 'Cloudwijk — European digital sovereignty in the AI era',
-    badge: 'EU AI Act Ready Platform',
+    title: 'European AI Infrastructure Platform',
+    subtitle: 'Cloudwijk — The leading European platform for AI inference',
+    badge: 'EU Sovereign AI Infrastructure',
     hero: {
-      title: 'Your complete AI solution for Europe',
-      subtitle: 'EU AI Act compliant, GDPR-friendly, and fully hosted in Europe. From assessment to implementation.',
-      cta: 'Start AI Act Check',
+      title: 'The leading European AI infrastructure platform',
+      subtitle: 'From GPU cloud to managed AI services. Fully EU-controlled, compliance by design, and transparently sustainable.',
+      cta: 'Start with AI Infrastructure',
       ctaSecondary: 'Explore Platform',
     },
     features: {
-      title: 'Why Cloudwijk',
-      aiActCompliant: 'EU AI Act Compliant',
-      gdprFriendly: 'GDPR-friendly',
-      euHosted: 'EU Hosted',
-      checker: {
-        title: 'AI Act Compliance Checker',
-        description: 'Complete assessment of your AI systems according to EU regulation 2024/1689',
+      title: 'Three-tier AI infrastructure',
+      datasoevereiniteit: 'Full data sovereignty',
+      complianceByDesign: 'Compliance by design',
+      duurzaamheid: 'Transparently sustainable',
+      gpuCloud: {
+        title: 'GPU Cloud Infrastructure',
+        description: 'High-performance GPU servers in European data centers. From NVIDIA H100s to L4/L40S for all AI workloads.',
       },
       platform: {
-        title: 'Managed AI Platform',
-        description: 'Complete AI infrastructure, governance and monitoring in Europe',
+        title: 'CloudwikOS Platform',
+        description: 'Unified control plane for orchestration, scaling and management across locations. Open standards, no lock-in.',
       },
-      consulting: {
-        title: 'Expert guidance',
-        description: 'Legal and technical expertise for AI Act implementation',
+      services: {
+        title: 'Managed AI Services',
+        description: 'RAG-as-a-Service, Vision Intelligence, Speech Analytics and Compliance Automation Suite. Ready to use.',
       },
     },
     socialProof: 'Trusted by organizations in the Netherlands',
@@ -80,18 +83,44 @@ export default {
       subtitle: 'European digital sovereignty',
     },
     problem: {
-      title: 'The AI Act challenge',
-      subtitle: 'Organizations struggle with AI Act compliance while innovating',
-      point1: 'Complex legislation with high penalties',
-      point2: 'Unclear implementation requirements',
-      point3: 'Lack of EU-sovereign solutions',
+      title: 'The AI infrastructure dilemma',
+      subtitle: 'European organizations struggle with a fundamental conflict between AI adoption and compliance',
+      point1: '84% of EU companies experience tension between US cloud and EU data rules',
+      point2: 'CLOUD Act creates legal uncertainty for sensitive data',
+      point3: 'AI Act and NIS2 introduce new requirements for transparency and auditability',
     },
     solution: {
-      title: 'Our solution',
-      subtitle: 'Complete AI governance and compliance in one platform',
-      point1: 'Legally correct AI Act assessments',
-      point2: 'End-to-end compliance management',
-      point3: '100% EU-hosted and GDPR-compliant',
+      title: 'Cloudwijk\'s Solution',
+      subtitle: 'An integrated solution that bridges the gap between high-end AI infrastructure and regulation',
+      point1: 'Full data sovereignty: all data stays within EU borders',
+      point2: 'Compliance by design: audit logs, EU encryption and AI Act dashboard built-in',
+      point3: 'Complete AI stack as a service: from GPU infrastructure to ready-made AI services',
+    },
+    market: {
+      title: 'Explosive market growth',
+      subtitle: 'European AI compute market growing to €8-11 billion by 2032',
+      driver1: '>100% annual growth in generative AI',
+      driver2: '75% of AI compute is used for inference (our focus)',
+      driver3: 'NIS2 and AI Act force organizations towards EU solutions',
+    },
+    segments: {
+      title: 'Our target groups',
+      subtitle: 'From AI startups to regulated sectors',
+      startups: {
+        title: 'AI Startups & Scale-ups',
+        description: '2,800+ EU AI startups seeking flexible, affordable infrastructure',
+        value: '~€8k/month, fast sales cycles (2-3 months)',
+      },
+      regulated: {
+        title: 'Regulated Sectors',
+        description: 'Healthcare, finance, government with strict compliance requirements',
+        value: '~€25k/month, extensive implementations (6-9 months)',
+      },
+      research: {
+        title: 'Research & Education',
+        description: 'Universities and research institutions with EU grants',
+        value: '~€15k/month, EU project partner (3-6 months)',
+      },
     },
     trust: {
       title: 'Trusted by organizations',
@@ -110,76 +139,138 @@ export default {
       description: 'Radio Kootwijk made the Netherlands independent from British cable monopolies in 1918. Today, Cloudwijk ensures digital sovereignty in the AI era — European AI solutions for European organizations.',
     },
     cta: {
-      title: 'Ready for AI Act compliance?',
-      subtitle: 'Start your AI Act assessment today',
-      primary: 'Start free check',
-      secondary: 'Schedule call',
+      title: 'Ready for EU-sovereign AI?',
+      subtitle: 'Discover how Cloudwijk realizes your AI ambitions within European frameworks',
+      primary: 'Start with Cloudwijk',
+      secondary: 'Book demo',
     },
   },
 
   about: {
     title: 'About Cloudwijk',
     subtitle: 'European digital sovereignty in the AI era',
+    hero: {
+      title: 'From Radio Kootwijk to Cloudwijk',
+      subtitle: 'Just as Radio Kootwijk made Europe independent from foreign communication monopolies in 1918, Cloudwijk builds the infrastructure for European digital sovereignty in the AI era today.',
+    },
+    story: {
+      title: 'Our story',
+      founding: {
+        title: 'The founding',
+        description: 'Cloudwijk was born from the frustration of European technology experts about dependency on American AI platforms. As the EU AI Act was being prepared, our founders realized that compliance without sovereign infrastructure is an illusion.',
+      },
+      inspiration: {
+        title: 'Inspiration from Radio Kootwijk',
+        description: 'Radio Kootwijk connected Europe with the world through advanced communication technology, within a Dutch framework. We honor that tradition by enabling AI innovation within European values and regulation.',
+      },
+    },
     mission: {
       title: 'Our mission',
-      description: 'Just as Radio Kootwijk made the Netherlands independent from British cable monopolies in 1918, Cloudwijk builds the infrastructure for European digital sovereignty in the AI era today.',
+      description: 'Provide European organizations with complete AI infrastructure that enables innovation without compromising on data sovereignty, compliance or sustainability.',
     },
     vision: {
       title: 'Our vision',
-      description: 'A Europe where organizations can innovate with AI without giving up their data, privacy or legal autonomy to foreign platforms.',
+      description: 'A Europe that leads in responsible AI, where organizations innovate without giving up their data, privacy or legal autonomy to foreign platforms.',
     },
     values: {
-      title: 'Our values',
+      title: 'Our core values',
       sovereignty: {
-        title: 'Digital Sovereignty',
-        description: 'European control over European data and AI systems',
+        title: 'EU Data Sovereignty',
+        description: 'All data stays within EU borders, fully controlled by EU entities',
       },
       compliance: {
-        title: 'Compliance First',
-        description: 'AI Act and GDPR compliance built-in, not added afterwards',
+        title: 'Compliance by Design',
+        description: 'AI Act, NIS2 and GDPR compliance built-in, not added afterwards',
       },
       transparency: {
         title: 'Transparency',
-        description: 'Open about our processes, data handling and AI decisions',
+        description: 'Full insight into data processing, AI decisions and infrastructure',
       },
-      innovation: {
-        title: 'Innovation',
-        description: 'Compliance that enables innovation, not hinders it',
+      sustainability: {
+        title: 'Sustainability',
+        description: '100% renewable energy and transparent CO2 footprint',
       },
     },
     team: {
-      title: 'Our team',
-      description: 'Experts in AI, legal compliance and European regulation',
+      title: 'The team behind Cloudwijk',
+      subtitle: 'European AI experts with decades of experience in infrastructure, compliance and innovation',
+      leadership: {
+        title: 'Founders & Leadership',
+        description: 'Our team combines deep technical expertise in AI infrastructure with extensive knowledge of European regulation and compliance.',
+      },
+      expertise: {
+        title: 'Our expertise',
+        areas: [
+          'AI/ML infrastructure architecture and scaling',
+          'European compliance (AI Act, GDPR, NIS2)',
+          'Cloud-native development and DevOps',
+          'Enterprise data governance and security',
+          'Sustainable computing and green tech',
+          'Open-source technology and standards'
+        ],
+      },
+      culture: {
+        title: 'Our culture',
+        description: 'We believe in open innovation, technical excellence and the power of European values. Our team works from the Netherlands but thinks European.',
+      },
+    },
+    investors: {
+      title: 'Investors & Partners',
+      description: 'Backed by leading European investors who believe in technological sovereignty',
+    },
+    location: {
+      title: 'Based in the Netherlands',
+      description: 'From the heart of Europe, with infrastructure partners in Stockholm, Lyon and Frankfurt',
     },
   },
 
   platform: {
-    title: 'AI Platform',
-    subtitle: 'Complete AI governance and compliance solution',
+    title: 'Cloudwijk Platform',
+    subtitle: 'Three-tier AI infrastructure for EU-sovereign AI inference',
     overview: {
-      title: 'One platform, complete AI governance',
-      description: 'From assessment to monitoring — everything you need for AI Act compliance and responsible AI implementation.',
+      title: 'One platform, complete AI stack',
+      description: 'From GPU infrastructure to ready-made AI services — everything you need for AI inference within European frameworks.',
     },
-    features: {
-      assessment: {
-        title: 'AI Act Assessment',
-        description: 'Complete classification and compliance check of your AI systems',
-        price: 'Free',
-      },
-      governance: {
-        title: 'AI Governance Suite',
-        description: 'Risk management, documentation and compliance monitoring',
-        price: 'From €2,500/month',
-      },
+    architecture: {
+      title: 'Three-tier architecture',
+      subtitle: 'Integrated solution from infrastructure to services',
+    },
+    layers: {
       infrastructure: {
-        title: 'Managed AI Infrastructure',
-        description: 'EU-hosted AI platforms with built-in governance',
-        price: 'Custom',
+        title: 'GPU Cloud Infrastructure',
+        subtitle: 'Layer 1: High-performance compute power',
+        description: 'Heterogeneous GPU fleet (NVIDIA H100, L4/L40S) in European data centers. Stockholm (primary), Lyon (secondary), plus edge locations Amsterdam/Frankfurt.',
+        features: [
+          'High-performance & scalability with Multi-Instance GPU (MIG)',
+          '100% renewable energy (hydropower Sweden), PUE <1.15',
+          'Fully EU-controlled, no exposure to foreign legal entities',
+          'Lease-to-own constructions for cost optimization at scale'
+        ],
+        price: '~€3.50/GPU-hour',
       },
-      consulting: {
-        title: 'Expert Consulting',
-        description: 'Legal and technical guidance for AI Act implementation',
-        price: '€250/hour',
+      platform: {
+        title: 'CloudwikOS Platform',
+        subtitle: 'Layer 2: Unified control plane',
+        description: 'Platform environment for orchestration, scaling and management. Based on open-source (OpenStack, Kubernetes) without lock-in.',
+        features: [
+          'Unified dashboard/API for multi-location GPU orchestration',
+          'Open standards: OpenStack, Kubernetes, Terraform integrations',
+          'Zero Trust architecture with strong tenant isolation',
+          'BYOK/HYOK key management and immutable audit logs'
+        ],
+        price: 'Included in compute',
+      },
+      services: {
+        title: 'Managed AI Services',
+        subtitle: 'Layer 3: Ready-to-use AI functionality',
+        description: 'RAG-as-a-Service, Vision Intelligence, Speech Analytics and Compliance Automation Suite. Ready to use on our cloud.',
+        features: [
+          'RAG-as-a-Service: EU-hosted vector databases, GDPR-compliant document processing',
+          'Vision Intelligence: Object/OCR/quality inspection, batch and real-time',
+          'Speech Analytics: 30+ European languages, transcription, sentiment, speaker recognition',
+          'Compliance Automation: AI model cards, DPIAs, audit trails, AI Act dashboard'
+        ],
+        price: 'API/subscription model',
       },
     },
     comparison: {
@@ -208,28 +299,144 @@ export default {
   },
 
   contact: {
-    title: 'Contact',
-    subtitle: 'Get in touch with us',
+    title: 'Get in touch',
+    subtitle: 'Ready to get started with EU-sovereign AI infrastructure?',
+    hero: {
+      title: 'Let\'s realize your AI ambitions',
+      subtitle: 'From startup to enterprise — we have the right AI infrastructure solution for every organization. Discover what Cloudwijk can mean for you.',
+    },
+    audiences: {
+      title: 'Choose your situation',
+      subtitle: 'Different organizations have different needs. Tell us about your situation for a personalized conversation.',
+      startups: {
+        title: 'Startups & Scale-ups',
+        description: 'Scale quickly with GPU cloud and AI services without infrastructure worries',
+        benefits: ['Pay-as-you-grow pricing', 'Setup in minutes', 'EU compliance built-in', 'Technical support'],
+        cta: 'Contact Startup Team',
+      },
+      enterprise: {
+        title: 'Enterprise & Government',
+        description: 'Mission-critical AI workloads with full data sovereignty and compliance',
+        benefits: ['Dedicated infrastructure', 'SLA guarantees', 'Custom compliance', 'Managed services'],
+        cta: 'Contact Enterprise Team',
+      },
+      research: {
+        title: 'Research & Education',
+        description: 'High-performance computing for AI research within academic budgets',
+        benefits: ['Academic pricing', 'Research partnerships', 'Open-source tools', 'Flexible access'],
+        cta: 'Contact Research Team',
+      },
+      investors: {
+        title: 'Investors',
+        description: 'Interested in investing in European AI infrastructure?',
+        benefits: ['Investment deck', 'Market analysis', 'Financial projections', 'Due diligence'],
+        cta: 'Contact Investor Relations',
+      },
+    },
     form: {
-      title: 'Send us a message',
+      title: 'Tell us about your needs',
+      subtitle: 'We\'ll contact you within 24 hours for a personalized conversation',
       name: 'Your name',
       email: 'Email address',
-      company: 'Company name',
-      message: 'Message',
-      submit: 'Send message',
-      success: 'Thank you! We\'ll be in touch soon.',
-      error: 'Something went wrong. Please try again.',
+      company: 'Organization',
+      role: 'Your role',
+      audience: 'Organization type',
+      audienceOptions: {
+        startup: 'Startup/Scale-up',
+        enterprise: 'Enterprise/Government',
+        research: 'Research/Education',
+        investor: 'Investor',
+        other: 'Other',
+      },
+      useCase: 'AI use case',
+      useCaseOptions: {
+        inference: 'AI Model Inference',
+        training: 'Model Training',
+        rag: 'RAG / Knowledge Systems',
+        vision: 'Computer Vision',
+        nlp: 'Natural Language Processing',
+        compliance: 'AI Act Compliance',
+        other: 'Other',
+      },
+      message: 'Tell us more about your plans',
+      messagePlaceholder: 'Describe your AI infrastructure challenges, scaling goals, or specific questions...',
+      submit: 'Send request',
+      success: 'Thank you! We\'ll contact you within 24 hours.',
+      error: 'Something went wrong. Email us directly at hello@cloudwijk.eu',
     },
     info: {
       title: 'Contact information',
-      email: 'hello@cloudwijk.eu',
-      phone: '+31 (0)20 123 4567',
-      address: 'Amsterdam, Netherlands',
+      subtitle: 'Get in touch directly for urgent questions',
+      general: {
+        title: 'General information',
+        email: 'hello@cloudwijk.eu',
+        response: 'Response within 4 hours',
+      },
+      sales: {
+        title: 'Sales & Partnerships',
+        email: 'sales@cloudwijk.eu',
+        response: 'Direct contact with solutions engineer',
+      },
+      technical: {
+        title: 'Technical questions',
+        email: 'tech@cloudwijk.eu',
+        response: 'Contact with AI infrastructure expert',
+      },
+      investors: {
+        title: 'Investor Relations',
+        email: 'investors@cloudwijk.eu',
+        response: 'Direct contact with leadership team',
+      },
+    },
+    locations: {
+      title: 'Our locations',
+      netherlands: {
+        title: 'Netherlands (Headquarters)',
+        address: 'Amsterdam',
+        description: 'Strategy, product development, and customer success',
+      },
+      sweden: {
+        title: 'Sweden',
+        address: 'Stockholm',
+        description: 'Primary datacenter and infrastructure operations',
+      },
+      france: {
+        title: 'France',
+        address: 'Lyon',
+        description: 'Secondary datacenter and European expansion',
+      },
     },
     cta: {
-      title: 'Prefer a conversation?',
-      subtitle: 'Schedule a 30-minute introduction',
-      primary: 'Schedule call',
+      title: 'Prefer a direct conversation?',
+      subtitle: 'Schedule a 30-minute introduction with our AI infrastructure team',
+      primary: 'Schedule Video Call',
+      secondary: 'Check Availability',
+    },
+    faq: {
+      title: 'Frequently asked questions',
+      subtitle: 'Answers to the most common questions about our AI infrastructure',
+      items: [
+        {
+          question: 'How quickly can I get started with Cloudwijk?',
+          answer: 'For GPU cloud we can set you up within 24 hours. For Managed AI Services there\'s a 1-2 week onboarding for custom configurations.',
+        },
+        {
+          question: 'Where are your servers located?',
+          answer: 'Our primary infrastructure is in Stockholm (Sweden) with secondary location in Lyon (France). Edge locations are available in Amsterdam and Frankfurt.',
+        },
+        {
+          question: 'What about compliance and AI Act?',
+          answer: 'All infrastructure is AI Act and NIS2 compliant by design. We also offer compliance-as-a-service for your AI applications.',
+        },
+        {
+          question: 'What are the costs?',
+          answer: 'GPU cloud starts at €3.50/hour per GPU. Managed AI Services from €2k/month. Contact us for custom enterprise pricing.',
+        },
+        {
+          question: 'Can I migrate my data?',
+          answer: 'Yes, we have migration experts who help you transition from AWS, Azure or Google Cloud to Cloudwijk.',
+        },
+      ],
     },
   },
 
@@ -735,6 +942,141 @@ export default {
     consent: {
       marketing: 'I agree to receive marketing communications from Cloudwijk',
       privacy: 'I have read and agree to the privacy policy',
+    },
+  },
+
+  investors: {
+    title: 'Investors',
+    subtitle: 'Invest in the future of European AI sovereignty',
+    hero: {
+      title: 'Join the European AI revolution',
+      subtitle: 'Cloudwijk positions itself in the rapidly growing €8-11 billion EU AI compute market with a unique combination of sovereign infrastructure and compliance-by-design.',
+    },
+    opportunity: {
+      title: 'The investment opportunity',
+      description: 'Europe faces a paradigm shift in AI infrastructure. While dependency on American platforms increases, Cloudwijk builds the foundation for European digital sovereignty.',
+      highlights: [
+        'TAM of €8-11 billion by 2032',
+        '>100% annual growth in generative AI',
+        '75% of AI compute is inference (our focus)',
+        'New regulatory drivers (AI Act, NIS2)'
+      ],
+    },
+    market: {
+      title: 'Market & Timing',
+      description: 'Perfectly positioned at the intersection of three megatrends',
+      trends: [
+        {
+          title: 'AI Adoption Explosion',
+          description: 'Generative AI adoption grows exponentially, with inference as the largest workload'
+        },
+        {
+          title: 'EU Regulation',
+          description: 'AI Act and NIS2 force organizations to comply and achieve data sovereignty'
+        },
+        {
+          title: 'Geopolitical Tension',
+          description: 'CLOUD Act and tech decoupling strengthens demand for European alternatives'
+        }
+      ],
+    },
+    model: {
+      title: 'Business Model',
+      description: 'Three-tier revenue model with recurring subscription basis',
+      layers: [
+        {
+          name: 'GPU Cloud Infrastructure',
+          model: 'Usage-based',
+          arpu: '€3.50/GPU-hour',
+          margins: '35-40%'
+        },
+        {
+          name: 'CloudwikOS Platform',
+          model: 'Included',
+          arpu: 'Platform fee',
+          margins: '60-70%'
+        },
+        {
+          name: 'Managed AI Services',
+          model: 'API/subscription',
+          arpu: '€2k-50k/month',
+          margins: '70-80%'
+        }
+      ],
+    },
+    competitive: {
+      title: 'Competitive advantages',
+      advantages: [
+        {
+          title: 'Unique Positioning',
+          description: 'Only pure-play EU AI infrastructure platform with compliance-by-design'
+        },
+        {
+          title: 'First-Mover Advantage',
+          description: 'Early market entry for EU AI Act compliance and sovereign infrastructure'
+        },
+        {
+          title: 'Complete Stack',
+          description: 'Vertically integrated from GPU hardware to AI services'
+        },
+        {
+          title: 'Regulatory Moat',
+          description: 'AI Act expertise and compliance tooling creates barrier to competition'
+        }
+      ],
+    },
+    funding: {
+      title: 'Funding & Use of Funds',
+      round: 'Series A: €15-20M',
+      description: 'Accelerate European rollout and product development',
+      allocation: [
+        {
+          category: 'Infrastructure Expansion',
+          percentage: 40,
+          description: 'GPU hardware and datacenter partnerships Stockholm/Lyon'
+        },
+        {
+          category: 'Product Development',
+          percentage: 30,
+          description: 'CloudwikOS platform and Managed AI Services'
+        },
+        {
+          category: 'Team & Talent',
+          percentage: 20,
+          description: 'Engineering, sales and compliance experts'
+        },
+        {
+          category: 'Marketing & Sales',
+          percentage: 10,
+          description: 'Go-to-market and enterprise customer acquisition'
+        }
+      ],
+    },
+    team: {
+      title: 'Why our team?',
+      description: 'Proven track record in AI infrastructure, compliance and European tech ecosystem',
+      credentials: [
+        'Decades of experience in cloud infrastructure scaling',
+        'Deep expertise in EU compliance and regulatory frameworks',
+        'Extensive network in European enterprise and government',
+        'Strong technical background in AI/ML and distributed systems'
+      ],
+    },
+    traction: {
+      title: 'Early traction',
+      description: 'Validation of product-market fit and enterprise interest',
+      metrics: [
+        'Pilot program with 3 enterprise customers',
+        'Letter of intent for €500k+ ARR',
+        'Technical partnership Stockholm datacenter',
+        'AI Act compliance toolkit in development'
+      ],
+    },
+    cta: {
+      title: 'Ready to fund the future of EU AI?',
+      subtitle: 'Join leading investors who believe in European technological sovereignty',
+      primary: 'Download Investor Deck',
+      secondary: 'Schedule Investor Call',
     },
   },
 
