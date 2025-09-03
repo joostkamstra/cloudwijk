@@ -27,9 +27,9 @@ export function CTA() {
             <Button 
               size="lg" 
               asChild 
-              className="bg-white text-cloudwijk-blue hover:bg-gray-50 sm:px-8"
+              className="bg-white text-cloudwijk-blue hover:bg-blue-50 hover:text-cloudwijk-blue border-2 border-white sm:px-8"
             >
-              <Link href="/ai-act-checker">
+              <Link href="/contact">
                 {t('home.cta.primary')}
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
@@ -40,7 +40,7 @@ export function CTA() {
               asChild 
               className="border-white text-white hover:bg-white/10 sm:px-8"
             >
-              <Link href="/contact">
+              <Link href="/ai-act-checker">
                 <Calendar className="mr-2 h-5 w-5" />
                 {t('home.cta.secondary')}
               </Link>

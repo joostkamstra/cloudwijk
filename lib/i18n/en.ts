@@ -61,6 +61,9 @@ export default {
     },
     features: {
       title: 'Three-tier AI infrastructure',
+      aiActCompliant: 'AI Act compliant',
+      gdprFriendly: 'GDPR friendly',
+      euHosted: 'EU hosted',
       datasoevereiniteit: 'Full data sovereignty',
       complianceByDesign: 'Compliance by design',
       duurzaamheid: 'Transparently sustainable',
@@ -85,7 +88,7 @@ export default {
     problem: {
       title: 'The AI infrastructure dilemma',
       subtitle: 'European organizations struggle with a fundamental conflict between AI adoption and compliance',
-      point1: '84% of EU companies experience tension between US cloud and EU data rules',
+      point1: 'Many EU companies experience tension between US cloud and EU data rules',
       point2: 'CLOUD Act creates legal uncertainty for sensitive data',
       point3: 'AI Act and NIS2 introduce new requirements for transparency and auditability',
     },
@@ -98,9 +101,9 @@ export default {
     },
     market: {
       title: 'Explosive market growth',
-      subtitle: 'European AI compute market growing to €8-11 billion by 2032',
-      driver1: '>100% annual growth in generative AI',
-      driver2: '75% of AI compute is used for inference (our focus)',
+      subtitle: 'European AI compute market growing explosively to multi-billions by 2032',
+      driver1: 'Strong annual growth in generative AI',
+      driver2: 'Majority of AI compute is used for inference (our focus)',
       driver3: 'NIS2 and AI Act force organizations towards EU solutions',
     },
     segments: {
@@ -109,17 +112,17 @@ export default {
       startups: {
         title: 'AI Startups & Scale-ups',
         description: '2,800+ EU AI startups seeking flexible, affordable infrastructure',
-        value: '~€8k/month, fast sales cycles (2-3 months)',
+        value: 'Flexible pricing, fast sales cycles (2-3 months)',
       },
       regulated: {
         title: 'Regulated Sectors',
         description: 'Healthcare, finance, government with strict compliance requirements',
-        value: '~€25k/month, extensive implementations (6-9 months)',
+        value: 'Enterprise pricing, extensive implementations (6-9 months)',
       },
       research: {
         title: 'Research & Education',
         description: 'Universities and research institutions with EU grants',
-        value: '~€15k/month, EU project partner (3-6 months)',
+        value: 'Academic pricing, EU project partner (3-6 months)',
       },
     },
     trust: {
@@ -242,11 +245,11 @@ export default {
         description: 'Heterogeneous GPU fleet (NVIDIA H100, L4/L40S) in European data centers. Stockholm (primary), Lyon (secondary), plus edge locations Amsterdam/Frankfurt.',
         features: [
           'High-performance & scalability with Multi-Instance GPU (MIG)',
-          '100% renewable energy (hydropower Sweden), PUE <1.15',
+          '100% renewable energy (hydropower Sweden), high energy efficiency',
           'Fully EU-controlled, no exposure to foreign legal entities',
           'Lease-to-own constructions for cost optimization at scale'
         ],
-        price: '~€3.50/GPU-hour',
+        price: 'Competitive GPU pricing',
       },
       platform: {
         title: 'CloudwikOS Platform',
@@ -362,11 +365,11 @@ export default {
       messagePlaceholder: 'Describe your AI infrastructure challenges, scaling goals, or specific questions...',
       submit: 'Send request',
       success: 'Thank you! We\'ll contact you within 24 hours.',
-      error: 'Something went wrong. Email us directly at hello@cloudwijk.eu',
+      error: 'Something went wrong. Please try again later or contact us via the form.',
     },
     info: {
       title: 'Contact information',
-      subtitle: 'Get in touch directly for urgent questions',
+      subtitle: 'Get in touch directly for urgent questions. *Email addresses are placeholders - please use the contact form.',
       general: {
         title: 'General information',
         email: 'hello@cloudwijk.eu',
@@ -430,7 +433,7 @@ export default {
         },
         {
           question: 'What are the costs?',
-          answer: 'GPU cloud starts at €3.50/hour per GPU. Managed AI Services from €2k/month. Contact us for custom enterprise pricing.',
+          answer: 'GPU cloud with competitive pricing. Managed AI Services tailored to needs. Contact us for custom enterprise pricing.',
         },
         {
           question: 'Can I migrate my data?',
@@ -950,15 +953,15 @@ export default {
     subtitle: 'Invest in the future of European AI sovereignty',
     hero: {
       title: 'Join the European AI revolution',
-      subtitle: 'Cloudwijk positions itself in the rapidly growing €8-11 billion EU AI compute market with a unique combination of sovereign infrastructure and compliance-by-design.',
+      subtitle: 'Cloudwijk positions itself in the rapidly growing EU AI compute market with a unique combination of sovereign infrastructure and compliance-by-design.',
     },
     opportunity: {
       title: 'The investment opportunity',
-      description: 'Europe faces a paradigm shift in AI infrastructure. While dependency on American platforms increases, Cloudwijk builds the foundation for European digital sovereignty.',
+      description: 'Europe faces a paradigm shift in AI infrastructure. While dependency on American platforms increases, Cloudwijk builds the foundation for European digital sovereignty. *Market projections are based on external research and internal analyses.',
       highlights: [
-        'TAM of €8-11 billion by 2032',
-        '>100% annual growth in generative AI',
-        '75% of AI compute is inference (our focus)',
+        'Multi-billion market potential by 2032',
+        'Exponential growth in generative AI',
+        'Inference is the largest AI compute workload (our focus)',
         'New regulatory drivers (AI Act, NIS2)'
       ],
     },
@@ -982,25 +985,25 @@ export default {
     },
     model: {
       title: 'Business Model',
-      description: 'Three-tier revenue model with recurring subscription basis',
+      description: 'Three-tier revenue model with recurring subscription basis. *Pricing and margins are indicative and subject to market conditions.',
       layers: [
         {
           name: 'GPU Cloud Infrastructure',
           model: 'Usage-based',
-          arpu: '€3.50/GPU-hour',
-          margins: '35-40%'
+          arpu: 'Competitive pricing',
+          margins: 'Healthy margins'
         },
         {
           name: 'CloudwikOS Platform',
           model: 'Included',
           arpu: 'Platform fee',
-          margins: '60-70%'
+          margins: 'High margins'
         },
         {
           name: 'Managed AI Services',
           model: 'API/subscription',
-          arpu: '€2k-50k/month',
-          margins: '70-80%'
+          arpu: 'Subscription model',
+          margins: 'Premium margins'
         }
       ],
     },
@@ -1027,7 +1030,7 @@ export default {
     },
     funding: {
       title: 'Funding & Use of Funds',
-      round: 'Series A: €15-20M',
+      round: 'Series A funding round',
       description: 'Accelerate European rollout and product development',
       allocation: [
         {
@@ -1067,7 +1070,7 @@ export default {
       description: 'Validation of product-market fit and enterprise interest',
       metrics: [
         'Pilot program with 3 enterprise customers',
-        'Letter of intent for €500k+ ARR',
+        'Early customer commitments and partnerships',
         'Technical partnership Stockholm datacenter',
         'AI Act compliance toolkit in development'
       ],

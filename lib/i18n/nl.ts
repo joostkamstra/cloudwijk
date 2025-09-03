@@ -61,6 +61,9 @@ export default {
     },
     features: {
       title: 'Drie-lagen AI-infrastructuur',
+      aiActCompliant: 'AI Act compliant',
+      gdprFriendly: 'GDPR conform',
+      euHosted: 'EU gehost',
       datasoevereiniteit: 'Volledige datasoevereiniteit',
       complianceByDesign: 'Compliance by design', 
       duurzaamheid: 'Transparant duurzaam',
@@ -85,7 +88,7 @@ export default {
     problem: {
       title: 'Het AI-infrastructuur dilemma',
       subtitle: 'Europese organisaties worstelen met een fundamenteel conflict tussen AI-adoptie en compliance',
-      point1: '84% van EU-bedrijven ervaart spanning tussen Amerikaanse cloud en EU-dataregels',
+      point1: 'Veel EU-bedrijven ervaren spanning tussen Amerikaanse cloud en EU-dataregels',
       point2: 'CLOUD Act zorgt voor juridische onzekerheid bij gevoelige data',
       point3: 'AI Act en NIS2 brengen nieuwe eisen voor transparantie en auditability',
     },
@@ -98,9 +101,9 @@ export default {
     },
     market: {
       title: 'Explosieve marktgroei',
-      subtitle: 'Europese AI-compute markt groeit naar €8-11 miljard tegen 2032',
-      driver1: '>100% jaarlijkse groei in generative AI',
-      driver2: '75% van AI-compute wordt gebruikt voor inferentie (ons focus)',
+      subtitle: 'Europese AI-compute markt groeit explosief naar multi-miljarden tegen 2032',
+      driver1: 'Sterke jaarlijkse groei in generative AI',
+      driver2: 'Grootste deel van AI-compute wordt gebruikt voor inferentie (ons focus)',
       driver3: 'NIS2 en AI Act dwingen organisaties naar EU-oplossingen',
     },
     segments: {
@@ -109,17 +112,17 @@ export default {
       startups: {
         title: 'AI-Startups & Scale-ups',
         description: '2.800+ EU AI-startups zoeken flexibele, betaalbare infrastructuur',
-        value: '~€8k/maand, snelle salescycli (2-3 maanden)',
+        value: 'Flexibele prijzen, snelle salescycli (2-3 maanden)',
       },
       regulated: {
         title: 'Gereguleerde Sectoren',
         description: 'Zorgverlening, financiën, overheid met strenge compliance-eisen',
-        value: '~€25k/maand, uitgebreide implementaties (6-9 maanden)',
+        value: 'Enterprise prijzen, uitgebreide implementaties (6-9 maanden)',
       },
       research: {
         title: 'Onderzoek & Educatie',
         description: 'Universiteiten en onderzoeksinstellingen met EU-grants',
-        value: '~€15k/maand, EU-projectpartner (3-6 maanden)',
+        value: 'Academische prijzen, EU-projectpartner (3-6 maanden)',
       },
     },
     trust: {
@@ -242,11 +245,11 @@ export default {
         description: 'Heterogene GPU-vloot (NVIDIA H100, L4/L40S) in Europese datacenters. Stockholm (primair), Lyon (secundair), plus edge-locaties Amsterdam/Frankfurt.',
         features: [
           'High-performance & schaalbaarheid met Multi-Instance GPU (MIG)',
-          '100% hernieuwbare energie (waterkracht Zweden), PUE <1.15',
+          '100% hernieuwbare energie (waterkracht Zweden), hoge energie-efficiëntie',
           'Volledig EU-gecontroleerd, geen blootstelling buitenlandse rechtspersonen',
           'Lease-to-own constructies voor kostenoptimalisatie bij opschaling'
         ],
-        price: '~€3.50/GPU-uur',
+        price: 'Competitieve GPU-prijzen',
       },
       platform: {
         title: 'CloudwikOS Platform',
@@ -362,14 +365,14 @@ export default {
       messagePlaceholder: 'Beschrijf uw AI-infrastructuur uitdagingen, schalingsdoelstellingen, of specifieke vragen...',
       submit: 'Verstuur aanvraag',
       success: 'Bedankt! We nemen binnen 24 uur contact op.',
-      error: 'Er ging iets mis. Mail ons direct op hallo@cloudwijk.eu',
+      error: 'Er ging iets mis. Probeer het later opnieuw of neem contact op via het formulier.',
     },
     info: {
       title: 'Contact informatie',
       subtitle: 'Neem direct contact op voor urgente vragen',
       general: {
         title: 'Algemene informatie',
-        email: 'hallo@cloudwijk.eu',
+        email: 'contact@cloudwijk.eu',
         response: 'Reactie binnen 4 uur',
       },
       sales: {
@@ -430,7 +433,7 @@ export default {
         },
         {
           question: 'Wat zijn de kosten?',
-          answer: 'GPU-cloud vanaf €3.50/uur per GPU. Managed AI Services vanaf €2k/maand. Contact ons voor custom enterprise pricing.',
+          answer: 'GPU-cloud met competitieve prijzen. Managed AI Services op maat. Contact ons voor aangepaste enterprise pricing.',
         },
         {
           question: 'Kan ik mijn data migreren?',
@@ -950,15 +953,15 @@ export default {
     subtitle: 'Investeer in de toekomst van Europese AI-soevereiniteit',
     hero: {
       title: 'Wordt onderdeel van de Europese AI-revolutie',
-      subtitle: 'Cloudwijk positioneert zich in de snel groeiende €8-11 miljard EU AI-compute markt met een unieke combinatie van soevereine infrastructuur en compliance-by-design.',
+      subtitle: 'Cloudwijk positioneert zich in de snel groeiende EU AI-compute markt met een unieke combinatie van soevereine infrastructuur en compliance-by-design.',
     },
     opportunity: {
       title: 'De investeringskans',
-      description: 'Europa staat voor een paradigmaverschuiving in AI-infrastructuur. Terwijl de dependentie van Amerikaanse platformen toeneemt, bouwt Cloudwijk de basis voor Europese digitale soevereiniteit.',
+      description: 'Europa staat voor een paradigmaverschuiving in AI-infrastructuur. Terwijl de dependentie van Amerikaanse platformen toeneemt, bouwt Cloudwijk de basis voor Europese digitale soevereiniteit. *Marktprojecties zijn gebaseerd op externe onderzoeken en eigen analyses.',
       highlights: [
-        'TAM van €8-11 miljard tegen 2032',
-        '>100% jaarlijkse groei in generative AI',
-        '75% van AI-compute is inferentie (ons focus)',
+        'Multi-miljard marktpotentieel tegen 2032',
+        'Exponentiële groei in generative AI',
+        'Inferentie is de grootste AI-compute workload (ons focus)',
         'Nieuwe regulatoire drivers (AI Act, NIS2)'
       ],
     },
@@ -982,25 +985,25 @@ export default {
     },
     model: {
       title: 'Business Model',
-      description: 'Drie-lagen revenue model met recurring subscription basis',
+      description: 'Drie-lagen revenue model met recurring subscription basis. *Prijzen en marges zijn indicatief en afhankelijk van marktomstandigheden.',
       layers: [
         {
           name: 'GPU Cloud Infrastructure',
           model: 'Usage-based',
-          arpu: '€3.50/GPU-uur',
-          margins: '35-40%'
+          arpu: 'Competitieve prijzen',
+          margins: 'Gezonde marges'
         },
         {
           name: 'CloudwikOS Platform',
           model: 'Inbegrepen',
           arpu: 'Platform fee',
-          margins: '60-70%'
+          margins: 'Hoge marges'
         },
         {
           name: 'Managed AI Services',
           model: 'API/abonnement',
-          arpu: '€2k-50k/maand',
-          margins: '70-80%'
+          arpu: 'Subscription model',
+          margins: 'Premium marges'
         }
       ],
     },
@@ -1027,7 +1030,7 @@ export default {
     },
     funding: {
       title: 'Funding & Use of Funds',
-      round: 'Series A: €15-20M',
+      round: 'Series A financieringsronde',
       description: 'Accelereer Europese uitrol en product development',
       allocation: [
         {
@@ -1067,7 +1070,7 @@ export default {
       description: 'Validatie van product-market fit en enterprise interesse',
       metrics: [
         'Pilot programma met 3 enterprise klanten',
-        'Letter of intent voor €500k+ ARR',
+        'Vroege klantcommitments en partnerships',
         'Technical partnership Stockholm datacenter',
         'AI Act compliance toolkit in development'
       ],

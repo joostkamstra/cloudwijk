@@ -29,7 +29,7 @@ export async function POST(request: NextRequest) {
       },
       body: JSON.stringify({
         type: 'contact_form',
-        recipient: 'hallo@cloudwijk.eu', // Internal notification
+        recipient: 'contact@cloudwijk.eu', // Internal notification
         data: sanitizedData,
       }),
     })
@@ -88,7 +88,7 @@ export async function POST(request: NextRequest) {
     }
 
     return NextResponse.json(
-      { error: 'Er is een fout opgetreden. Probeer het opnieuw of mail direct naar hallo@cloudwijk.eu' },
+      { error: 'Er is een fout opgetreden. Probeer het later opnieuw.' },
       { status: 500 }
     )
   }

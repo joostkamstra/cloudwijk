@@ -4,6 +4,7 @@ import { Hero } from '@/components/marketing/hero'
 import { ProblemSolution } from '@/components/marketing/problem-solution'
 import { Features } from '@/components/marketing/features'
 import { MarketSegments } from '@/components/marketing/market-segments'
+import { AIActHighlight } from '@/components/marketing/ai-act-highlight'
 import { Trust } from '@/components/marketing/trust'
 import { Story } from '@/components/marketing/story'
 import { CTA } from '@/components/marketing/cta'
@@ -16,6 +17,7 @@ export default function HomePage() {
         <Hero />
         <ProblemSolution />
         <Features />
+        <AIActHighlight />
         <MarketSegments />
         <Trust />
         <Story />

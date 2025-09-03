@@ -12,24 +12,13 @@ export function Footer() {
       { name: t('footer.product.checker'), href: '/ai-act-checker' },
       { name: t('footer.product.platform'), href: '/platform' },
       { name: t('footer.product.consulting'), href: '/contact' },
-      { name: t('footer.product.pricing'), href: '/platform#pricing' },
     ],
     company: [
       { name: t('footer.company.about'), href: '/about' },
-      { name: t('footer.company.team'), href: '/about#team' },
-      { name: t('footer.company.careers'), href: '/careers' },
       { name: t('footer.company.contact'), href: '/contact' },
-    ],
-    legal: [
-      { name: t('footer.legal.privacy'), href: '/privacy' },
-      { name: t('footer.legal.terms'), href: '/terms' },
-      { name: t('footer.legal.security'), href: '/security' },
-      { name: t('footer.legal.gdpr'), href: '/gdpr' },
+      { name: 'Investeerders', href: '/investors' },
     ],
     support: [
-      { name: t('footer.support.help'), href: '/help' },
-      { name: t('footer.support.documentation'), href: '/docs' },
-      { name: t('footer.support.status'), href: '/status' },
       { name: t('footer.support.contact'), href: '/contact' },
     ],
   }
@@ -71,78 +60,57 @@ export function Footer() {
           </div>
 
           {/* Links */}
-          <div className="mt-12 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
-            <div className="md:grid md:grid-cols-2 md:gap-8">
-              <div>
-                <h3 className="text-sm font-semibold text-gray-900 tracking-wider uppercase">
-                  {t('footer.links.product')}
-                </h3>
-                <ul className="mt-4 space-y-3">
-                  {footerLinks.product.map((item) => (
-                    <li key={item.name}>
-                      <Link
-                        href={item.href}
-                        className="text-sm text-gray-600 hover:text-cloudwijk-blue transition-colors"
-                      >
-                        {item.name}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="mt-12 md:mt-0">
-                <h3 className="text-sm font-semibold text-gray-900 tracking-wider uppercase">
-                  {t('footer.links.company')}
-                </h3>
-                <ul className="mt-4 space-y-3">
-                  {footerLinks.company.map((item) => (
-                    <li key={item.name}>
-                      <Link
-                        href={item.href}
-                        className="text-sm text-gray-600 hover:text-cloudwijk-blue transition-colors"
-                      >
-                        {item.name}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+          <div className="mt-12 grid grid-cols-1 gap-8 xl:col-span-2 xl:mt-0 md:grid-cols-3">
+            <div>
+              <h3 className="text-sm font-semibold text-gray-900 tracking-wider uppercase">
+                {t('footer.links.product')}
+              </h3>
+              <ul className="mt-4 space-y-3">
+                {footerLinks.product.map((item) => (
+                  <li key={item.name}>
+                    <Link
+                      href={item.href}
+                      className="text-sm text-gray-600 hover:text-cloudwijk-blue transition-colors"
+                    >
+                      {item.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </div>
-            <div className="md:grid md:grid-cols-2 md:gap-8">
-              <div>
-                <h3 className="text-sm font-semibold text-gray-900 tracking-wider uppercase">
-                  {t('footer.links.legal')}
-                </h3>
-                <ul className="mt-4 space-y-3">
-                  {footerLinks.legal.map((item) => (
-                    <li key={item.name}>
-                      <Link
-                        href={item.href}
-                        className="text-sm text-gray-600 hover:text-cloudwijk-blue transition-colors"
-                      >
-                        {item.name}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="mt-12 md:mt-0">
-                <h3 className="text-sm font-semibold text-gray-900 tracking-wider uppercase">
-                  {t('footer.links.support')}
-                </h3>
-                <ul className="mt-4 space-y-3">
-                  {footerLinks.support.map((item) => (
-                    <li key={item.name}>
-                      <Link
-                        href={item.href}
-                        className="text-sm text-gray-600 hover:text-cloudwijk-blue transition-colors"
-                      >
-                        {item.name}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+            <div>
+              <h3 className="text-sm font-semibold text-gray-900 tracking-wider uppercase">
+                {t('footer.links.company')}
+              </h3>
+              <ul className="mt-4 space-y-3">
+                {footerLinks.company.map((item) => (
+                  <li key={item.name}>
+                    <Link
+                      href={item.href}
+                      className="text-sm text-gray-600 hover:text-cloudwijk-blue transition-colors"
+                    >
+                      {item.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-sm font-semibold text-gray-900 tracking-wider uppercase">
+                Support
+              </h3>
+              <ul className="mt-4 space-y-3">
+                {footerLinks.support.map((item) => (
+                  <li key={item.name}>
+                    <Link
+                      href={item.href}
+                      className="text-sm text-gray-600 hover:text-cloudwijk-blue transition-colors"
+                    >
+                      {item.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>

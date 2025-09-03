@@ -188,7 +188,7 @@ function generateAssessmentReportEmail(data: any): { subject: string; html: stri
           Neem gerust contact op voor een persoonlijk gesprek over uw AI Act compliance strategy.</p>
           
           <div style="text-align: center; margin: 20px 0;">
-            <a href="mailto:hallo@cloudwijk.eu" class="button">✉️ Neem Contact Op</a>
+            <a href="/contact" class="button">✉️ Neem Contact Op</a>
           </div>
         </div>
         
@@ -217,7 +217,7 @@ Uw resultaat:
 Bekijk uw volledige rapport: ${reportUrl}
 Download PDF: ${process.env.NEXT_PUBLIC_APP_URL}/api/report/generate?id=${assessmentId}
 
-Hebt u vragen? Mail ons op hallo@cloudwijk.eu
+Hebt u vragen? Neem contact op via ons contactformulier
 
 Met vriendelijke groet,
 Het Cloudwijk team

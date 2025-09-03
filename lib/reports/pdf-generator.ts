@@ -412,7 +412,7 @@ export class PDFReportGenerator {
     this.currentY += 10
 
     this.doc.setFont('helvetica', 'normal')
-    this.addBulletPoint('E-mail: hallo@cloudwijk.eu')
+    this.addBulletPoint('Contact: Via contactformulier op cloudwijk.eu')
     this.addBulletPoint('Website: https://cloudwijk.eu')
     this.addBulletPoint('Platform: Start gratis op cloudwijk.eu/ai-act-checker')
   }

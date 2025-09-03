@@ -14,7 +14,7 @@ export function Hero() {
       <div className="absolute inset-0 bg-grid-gray-100 [mask-image:linear-gradient(0deg,transparent,black)] opacity-20"></div>
       
       <div className="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
-        <div className="lg:grid lg:grid-cols-12 lg:gap-8">
+        <div className="lg:grid lg:grid-cols-12 lg:gap-12">
           <div className="sm:text-center md:mx-auto md:max-w-2xl lg:col-span-6 lg:text-left lg:flex lg:items-center">
             <div>
               {/* Badge */}
@@ -52,7 +52,7 @@ export function Hero() {
               {/* CTAs */}
               <div className="mt-10 flex flex-col sm:flex-row gap-4">
                 <Button asChild size="lg" className="sm:px-8">
-                  <Link href="/ai-act-checker">
+                  <Link href="/contact">
                     {t('home.hero.cta')}
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Link>

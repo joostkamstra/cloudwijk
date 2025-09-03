@@ -60,15 +60,15 @@ export function MarketSegments() {
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="text-center">
-              <div className="text-3xl font-bold text-cloudwijk-blue mb-2">100%+</div>
+              <div className="text-3xl font-bold text-cloudwijk-blue mb-2">Strong</div>
               <p className="text-sm text-gray-700">{t('home.market.driver1')}</p>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-cloudwijk-blue mb-2">75%</div>
+              <div className="text-3xl font-bold text-cloudwijk-blue mb-2">Most</div>
               <p className="text-sm text-gray-700">{t('home.market.driver2')}</p>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-cloudwijk-blue mb-2">€8-11B</div>
+              <div className="text-3xl font-bold text-cloudwijk-blue mb-2">Multi-B€</div>
               <p className="text-sm text-gray-700">{t('home.market.driver3')}</p>
             </div>
           </div>
