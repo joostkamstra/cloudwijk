@@ -2,9 +2,6 @@
 const { withSentryConfig } = require('@sentry/nextjs')
 
 const nextConfig = {
-  experimental: {
-    typedRoutes: true,
-  },
   images: {
     remotePatterns: [
       {
