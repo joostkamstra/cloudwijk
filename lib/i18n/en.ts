@@ -49,11 +49,35 @@ export default {
   home: {
     title: 'EU Sovereign AI Platform',
     subtitle: 'Cloudwijk — European digital sovereignty in the AI era',
+    badge: 'EU AI Act Ready Platform',
     hero: {
       title: 'Your complete AI solution for Europe',
       subtitle: 'EU AI Act compliant, GDPR-friendly, and fully hosted in Europe. From assessment to implementation.',
       cta: 'Start AI Act Check',
       ctaSecondary: 'Explore Platform',
+    },
+    features: {
+      title: 'Why Cloudwijk',
+      aiActCompliant: 'EU AI Act Compliant',
+      gdprFriendly: 'GDPR-friendly',
+      euHosted: 'EU Hosted',
+      checker: {
+        title: 'AI Act Compliance Checker',
+        description: 'Complete assessment of your AI systems according to EU regulation 2024/1689',
+      },
+      platform: {
+        title: 'Managed AI Platform',
+        description: 'Complete AI infrastructure, governance and monitoring in Europe',
+      },
+      consulting: {
+        title: 'Expert guidance',
+        description: 'Legal and technical expertise for AI Act implementation',
+      },
+    },
+    socialProof: 'Trusted by organizations in the Netherlands',
+    visual: {
+      title: 'Radio Kootwijk → Cloudwijk',
+      subtitle: 'European digital sovereignty',
     },
     problem: {
       title: 'The AI Act challenge',
@@ -68,21 +92,6 @@ export default {
       point1: 'Legally correct AI Act assessments',
       point2: 'End-to-end compliance management',
       point3: '100% EU-hosted and GDPR-compliant',
-    },
-    features: {
-      title: 'Why Cloudwijk',
-      checker: {
-        title: 'AI Act Compliance Checker',
-        description: 'Complete assessment of your AI systems according to EU regulation 2024/1689',
-      },
-      platform: {
-        title: 'Managed AI Platform',
-        description: 'Complete AI infrastructure, governance and monitoring in Europe',
-      },
-      consulting: {
-        title: 'Expert guidance',
-        description: 'Legal and technical expertise for AI Act implementation',
-      },
     },
     trust: {
       title: 'Trusted by organizations',

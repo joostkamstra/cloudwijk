@@ -25,8 +25,17 @@ export function getI18n(locale: 'nl' | 'en' = 'nl') {
   }
 }
 
-export function getCurrentLocale() {
+export function getCurrentLocale(): 'nl' | 'en' {
+  // In a server component, we need to detect locale from request
+  // For now defaulting to 'nl', but this will be improved with middleware
   return 'nl' as const
+}
+
+export function getLocaleFromPathname(pathname: string): 'nl' | 'en' {
+  if (pathname.startsWith('/en')) {
+    return 'en'
+  }
+  return 'nl'
 }
 
 export function getLocaleFromRequest(request?: Request): string {

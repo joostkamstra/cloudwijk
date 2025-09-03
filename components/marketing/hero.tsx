@@ -20,7 +20,7 @@ export function Hero() {
               {/* Badge */}
               <div className="inline-flex items-center rounded-full bg-cloudwijk-blue/10 px-4 py-2 text-sm font-medium text-cloudwijk-blue ring-1 ring-inset ring-cloudwijk-blue/20 mb-8">
                 <Shield className="mr-2 h-4 w-4" />
-                EU AI Act Ready Platform
+                {t('home.badge')}
               </div>
 
               {/* Headline */}
@@ -37,15 +37,15 @@ export function Hero() {
               <div className="mt-8 flex flex-col sm:flex-row sm:items-center sm:space-x-8 space-y-4 sm:space-y-0">
                 <div className="flex items-center text-sm text-gray-600">
                   <Shield className="mr-2 h-5 w-5 text-green-500" />
-                  EU AI Act Compliant
+                  {t('home.features.aiActCompliant')}
                 </div>
                 <div className="flex items-center text-sm text-gray-600">
                   <Globe className="mr-2 h-5 w-5 text-blue-500" />
-                  GDPR-vriendelijk
+                  {t('home.features.gdprFriendly')}
                 </div>
                 <div className="flex items-center text-sm text-gray-600">
                   <Zap className="mr-2 h-5 w-5 text-purple-500" />
-                  EU Gehost
+                  {t('home.features.euHosted')}
                 </div>
               </div>
 
@@ -66,7 +66,7 @@ export function Hero() {
 
               {/* Social Proof */}
               <div className="mt-8 pt-8 border-t border-gray-200">
-                <p className="text-sm text-gray-500 mb-4">Vertrouwd door organisaties in Nederland</p>
+                <p className="text-sm text-gray-500 mb-4">{t('home.socialProof')}</p>
                 <div className="flex items-center space-x-8 opacity-60">
                   {/* Placeholder for customer logos */}
                   <div className="h-8 w-24 bg-gray-200 rounded"></div>
@@ -105,8 +105,8 @@ export function Hero() {
                       <rect x="90" y="250" width="20" height="10" fill="white" opacity="0.9"/>
                     </svg>
                     
-                    <h3 className="text-xl font-semibold mb-2">Radio Kootwijk → Cloudwijk</h3>
-                    <p className="text-sm opacity-90">Europese digitale soevereiniteit</p>
+                    <h3 className="text-xl font-semibold mb-2">{t('home.visual.title')}</h3>
+                    <p className="text-sm opacity-90">{t('home.visual.subtitle')}</p>
                   </div>
                 </div>
               </div>

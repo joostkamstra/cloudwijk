@@ -49,11 +49,35 @@ export default {
   home: {
     title: 'EU-soeverein AI Platform',
     subtitle: 'Cloudwijk — Europese digitale soevereiniteit in het AI-tijdperk',
+    badge: 'EU AI Act Ready Platform',
     hero: {
       title: 'Uw complete AI-oplossing voor Europa',
       subtitle: 'EU AI Act compliant, GDPR-vriendelijk, en volledig gehost in Europa. Van assessment tot implementatie.',
       cta: 'Start AI Act Check',
       ctaSecondary: 'Ontdek Platform',
+    },
+    features: {
+      title: 'Waarom Cloudwijk',
+      aiActCompliant: 'EU AI Act Compliant',
+      gdprFriendly: 'GDPR-vriendelijk',
+      euHosted: 'EU Gehost',
+      checker: {
+        title: 'AI Act Compliance Checker',
+        description: 'Volledige assessment van uw AI-systemen volgens EU verordening 2024/1689',
+      },
+      platform: {
+        title: 'Managed AI Platform',
+        description: 'Complete AI-infrastructuur, governance en monitoring in Europa',
+      },
+      consulting: {
+        title: 'Expert begeleiding',
+        description: 'Juridische en technische expertise voor AI Act implementatie',
+      },
+    },
+    socialProof: 'Vertrouwd door organisaties in Nederland',
+    visual: {
+      title: 'Radio Kootwijk → Cloudwijk',
+      subtitle: 'Europese digitale soevereiniteit',
     },
     problem: {
       title: 'Het AI Act uitdaging',
@@ -68,21 +92,6 @@ export default {
       point1: 'Juridisch correcte AI Act assessments',
       point2: 'End-to-end compliance management',
       point3: '100% EU-gehost en GDPR-compliant',
-    },
-    features: {
-      title: 'Waarom Cloudwijk',
-      checker: {
-        title: 'AI Act Compliance Checker',
-        description: 'Volledige assessment van uw AI-systemen volgens EU verordening 2024/1689',
-      },
-      platform: {
-        title: 'Managed AI Platform',
-        description: 'Complete AI-infrastructuur, governance en monitoring in Europa',
-      },
-      consulting: {
-        title: 'Expert begeleiding',
-        description: 'Juridische en technische expertise voor AI Act implementatie',
-      },
     },
     trust: {
       title: 'Vertrouwd door organisaties',

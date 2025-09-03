@@ -1,6 +1,6 @@
 'use client'
 
-import { createContext, useContext, ReactNode } from 'react'
+import { createContext, useContext, ReactNode, useState, useEffect } from 'react'
 import nl from './nl'
 import en from './en'
 
@@ -9,20 +9,40 @@ const translations = { nl, en }
 const I18nContext = createContext<{
   locale: 'nl' | 'en'
   t: any
+  changeLocale: (newLocale: 'nl' | 'en') => void
 }>({
   locale: 'nl',
-  t: nl
+  t: nl,
+  changeLocale: () => {}
 })
 
 export function I18nProviderClient({ 
   children, 
-  locale = 'nl' 
+  locale: initialLocale 
 }: { 
   children: ReactNode
   locale?: 'nl' | 'en' 
 }) {
+  const [locale, setLocale] = useState<'nl' | 'en'>(initialLocale || 'nl')
+
+  useEffect(() => {
+    // Check localStorage for saved locale preference
+    const savedLocale = localStorage.getItem('cloudwijk-locale') as 'nl' | 'en'
+    if (savedLocale && (savedLocale === 'nl' || savedLocale === 'en')) {
+      setLocale(savedLocale)
+    }
+  }, [])
+
+  const changeLocale = (newLocale: 'nl' | 'en') => {
+    setLocale(newLocale)
+    localStorage.setItem('cloudwijk-locale', newLocale)
+    
+    // Update document lang attribute
+    document.documentElement.lang = newLocale
+  }
+
   return (
-    <I18nContext.Provider value={{ locale, t: translations[locale] }}>
+    <I18nContext.Provider value={{ locale, t: translations[locale], changeLocale }}>
       {children}
     </I18nContext.Provider>
   )
@@ -50,7 +70,6 @@ export function useCurrentLocale() {
 }
 
 export function useChangeLocale() {
-  return (newLocale: 'nl' | 'en') => {
-    window.location.href = `/${newLocale}`
-  }
+  const { changeLocale } = useContext(I18nContext)
+  return changeLocale
 }

@@ -3,7 +3,6 @@ import { Inter } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import { I18nProviderClient } from '@/lib/i18n/client'
-import { getCurrentLocale } from '@/lib/i18n/server'
 import { Toaster } from '@/components/ui/toaster'
 import { SkipLink } from '@/components/accessibility/skip-link'
 import ErrorBoundary from '@/components/error/error-boundary'
@@ -86,10 +85,8 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  const locale = 'nl'
-
   return (
-    <html lang={locale} className={inter.variable}>
+    <html lang="nl" className={inter.variable}>
       <head>
         <link rel="icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
@@ -99,7 +96,7 @@ export default function RootLayout({
       </head>
       <body className="font-sans antialiased">
         <SkipLink />
-        <I18nProviderClient locale={locale}>
+        <I18nProviderClient>
           <ErrorBoundary>
             {children}
             <Toaster />
